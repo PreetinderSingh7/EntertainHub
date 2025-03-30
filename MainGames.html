@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #faf8ef;
+            color: #776e65;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header and Navigation */
+        header {
+            background: #776e65;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(119, 110, 101, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #faf8ef;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: #faf8ef;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffed4a;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            background-image: url('/api/placeholder/1200/500');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(119, 110, 101, 0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+            color: #faf8ef;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: #faf8ef;
+            color: #776e65;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid #faf8ef;
+        }
+
+        .hero-btn:hover {
+            background: transparent;
+            color: #faf8ef;
+        }
+
+        /* Section Headings */
+        .section-heading {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-heading h2 {
+            font-size: 2.5em;
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+        }
+
+        .section-heading h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: #776e65;
+        }
+
+        /* Featured Games */
+        .featured-section {
+            margin-bottom: 60px;
+        }
+
+        .featured-games {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        /* Scoreboard */
+        .scoreboard {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(119, 110, 101, 0.1);
+            margin-bottom: 60px;
+            display: none;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .scoreboard h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #776e65;
+            font-size: 2em;
+        }
+
+        .scores {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .score-item {
+            text-align: center;
+            margin: 15px;
+            padding: 20px;
+            background: #faf8ef;
+            border-radius: 10px;
+            min-width: 180px;
+            box-shadow: 0 3px 10px rgba(119, 110, 101, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .score-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .score-item h3 {
+            margin-bottom: 10px;
+            color: #776e65;
+        }
+
+        .score-item p {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #776e65;
+        }
+
+        /* Games Grid */
+        .games-section {
+            margin-bottom: 60px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .game-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(119, 110, 101, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(119, 110, 101, 0.2);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(119, 110, 101, 0.1);
+        }
+
+        .game-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .game-title {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #776e65;
+        }
+
+        .game-description {
+            margin-bottom: 20px;
+            color: #8a8178;
+        }
+
+        .play-btn {
+            background: #776e65;
+            color: #faf8ef;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .play-btn:hover {
+            background: #8a8178;
+            transform: scale(1.05);
+        }
+
+        /* New Features Section */
+        .features-section {
+            margin-bottom: 60px;
+            padding: 50px 0;
+            background: #776e65;
+            color: #faf8ef;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background: rgba(250, 248, 239, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #faf8ef;
+        }
+
+        .feature-title {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            margin-bottom: 60px;
+            text-align: center;
+            padding: 50px 0;
+            background: #f0ebe4;
+            border-radius: 15px;
+        }
+
+        .newsletter-section h2 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .newsletter-section p {
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .newsletter-btn {
+            background: #776e65;
+            color: #faf8ef;
+            border: none;
+            padding: 0 30px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background: #8a8178;
+        }
+
+        /* Footer */
+        footer {
+            background: #776e65;
+            color: #faf8ef;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #faf8ef;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #faf8ef;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ffed4a;
+        }
+
+        .social-icons {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(250, 248, 239, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            color: #faf8ef;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #faf8ef;
+            color: #776e65;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(250, 248, 239, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from { 
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Page loader animation */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #faf8ef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(119, 110, 101, 0.2);
+            border-top: 5px solid #776e65;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .featured-games {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero h1 {
+                font-size: 2.8em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .featured-games {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                height: 400px;
+            }
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .newsletter-input, .newsletter-btn {
+                width: 100%;
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+        }
+        #back:hover{
+cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+           
+            <a href="#" class="logo">Gaming Portal</a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#newsletter">Newsletter</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="./mains3(edited code for main page).html">Back to Home page</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Gaming Portal</h1>
+            <p>Your one-stop destination for the best browser games. Play classic games reimagined for modern browsers. No downloads required.</p>
+            <a href="#games" class="hero-btn">Explore Games</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Scoreboard Section -->
+        <div class="scoreboard" id="scoreboard">
+            <h2>Your High Scores</h2>
+            <div class="scores" id="scores">
+                <!-- Scores will be dynamically added here -->
+            </div>
+        </div>
+
+        <!-- Featured Games Section -->
+        <section class="featured-section">
+            <div class="section-heading">
+                <h2>Featured Games</h2>
+            </div>
+            <div class="featured-games">
+                <div class="game-card" onclick="location.href='./Games/2048-master/index.html'">
+                    <img src="/api/placeholder/350/180" alt="2048">
+                    <div class="game-info">
+                        <h3 class="game-title">2048</h3>
+                        <p class="game-description">Join the numbers and get to the 2048 tile! Our most addictive puzzle game.</p>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="location.href='./Games/snake.html'">
+                    <img src="/api/placeholder/350/180" alt="Snake Game">
+                    <div class="game-info">
+                        <h3 class="game-title">Snake Game</h3>
+                        <p class="game-description">Classic snake game with modern twists and multiple difficulty levels.</p>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="location.href='./Games/Tetris.html'">
+                    <img src="/api/placeholder/350/180" alt="Tetris">
+                    <div class="game-info">
+                        <h3 class="game-title">Tetris</h3>
+                        <p class="game-description">The timeless block-stacking puzzle game that everyone loves.</p>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Games Section -->
+        <section class="games-section" id="games">
+            <div class="section-heading">
+                <h2>All Games</h2>
+            </div>
+            <div class="games-grid">
+                <div class="game-card" onclick="location.href='./Games/snake.html'">
+                    <img src="/api/placeholder/280/180" alt="Snake Game">
+                    <div class="game-info">
+                        <h3 class="game-title">Snake Game</h3>
+                        <p class="game-description">Classic snake game with modern twist</p>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="location.href='./Games/Tetris.html'">
+                    <img src="/api/placeholder/280/180" alt="Tetris">
+                    <div class="game-info">
+                        <h3 class="game-title">Tetris</h3>
+                        <p class="game-description">Block-stacking puzzle game</p>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="location.href='./Games/Memory.html'">
+                    <img src="/api/placeholder/280/180" alt="Memory Game">
+                    <div class="game-info">
+                        <h3 class="game-title">Memory Match</h3>
+                        <p class="game-description">Test your memory skills</p>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="location.href='pong.html'">
+                    <img src="/api/placeholder/280/180" alt="Pong">
+                    <div class="game-info">
+                        <h3 class="game-title">Pong</h3>
+                        <p class="game-description">Classic table tennis game</p>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="location.href='breakout.html'">
+                    <img src="/api/placeholder/280/180" alt="Breakout">
+                    <div class="game-info">
+                        <h3 class="game-title">Breakout</h3>
+                        <p class="game-description">Break all the blocks</p>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="location.href='./Games/2048-master/index.html'">
+                    <img src="/api/placeholder/280/180" alt="2048">
+                    <div class="game-info">
+                        <h3 class="game-title">2048</h3>
+                        <p class="game-description">Merge tiles to reach 2048</p>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="location.href='flappy.html'">
+                    <img src="/api/placeholder/280/180" alt="Flappy Bird">
+                    <div class="game-info">
+                        <h3 class="game-title">Flappy Bird</h3>
+                        <p class="game-description">Navigate through pipes</p>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="location.href='minesweeper.html'">
+                    <img src="/api/placeholder/280/180" alt="Minesweeper">
+                    <div class="game-info">
+                        <h3 class="game-title">Minesweeper</h3>
+                        <p class="game-description">Clear the minefield</p>
+                        <button class="play-btn">Play Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section" id="features">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 style="color: #faf8ef;">Why Choose Us</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <h3 class="feature-title">Free Games</h3>
+                        <p>All our games are completely free to play with no hidden costs or subscriptions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h3 class="feature-title">Leaderboards</h3>
+                        <p>Compete with players worldwide and see your name on our global leaderboards.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3 class="feature-title">Mobile Friendly</h3>
+                        <p>Play your favorite games on any device with our responsive design.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3 class="feature-title">Regular Updates</h3>
+                        <p>We constantly add new games and features to keep your gaming experience fresh.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section" id="newsletter">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter to get the latest game releases, updates, and exclusive offers directly to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Gaming Portal</h3>
+                    <p>Your ultimate destination for free browser games. Play anytime, anywhere, no downloads required.</p>
+                    <div class="social-icons">
+                        <a href="#">📘</a>
+                        <a href="#">🐦</a>
+                        <a href="#">📸</a>
+                        <a href="#">🎮</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#games">Games</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Popular Games</h3>
+                    <ul class="footer-links">
+                        <li><a href="./Games/2048-master/index.html">2048</a></li>
+                        <li><a href="./Games/snake.html">Snake Game</a></li>
+                        <li><a href="./Games/Tetris.html">Tetris</a></li>
+                        <li><a href="flappy.html">Flappy Bird</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li>📧 support@gamingportal.com</li>
+                        <li>📞 (555) 123-4567</li>
+                        <li>🏢 123 Game Street, Digital City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Gaming Portal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page loader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('pageLoader').style.opacity = '0';
+                document.getElementById('pageLoader').style.visibility = 'hidden';
+            }, 1000);
+        });
+
+        // Check if any games have been played
+        function updateScoreboard() {
+            const scores = JSON.parse(localStorage.getItem('gameScores')) || {};
+            const scoreboardDiv = document.getElementById('scoreboard');
+            const scoresDiv = document.getElementById('scores');
+            
+            // Only show scoreboard if there are scores
+            if (Object.keys(scores).length > 0) {
+                scoreboardDiv.style.display = 'block';
+                scoresDiv.innerHTML = '';
+                
+                for (const [game, score] of Object.entries(scores)) {
+                    const scoreItem = document.createElement('div');
+                    scoreItem.className = 'score-item';
+                    scoreItem.innerHTML = `
+                        <h3>${game}</h3>
+                        <p>${score}</p>
+                    `;
+                    scoresDiv.appendChild(scoreItem);
+                }
+            }
+        }
+
+        // Add animations to game cards
+        function animateCards() {
+            const gameCards = document.querySelectorAll('.game-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = 1;
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            gameCards.forEach((card) => {
+                observer.observe(card);
+            });
+        }
+
+        // Check scores and animate cards when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            updateScoreboard();
+            animateCards();
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Newsletter form submission (prevent default)
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    alert('Thank you for subscribing to our newsletter!');
+                    newsletterForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

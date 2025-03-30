@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://studio.stunning.so/editor/tunescapoe001 -->
+<html lang="en" class="wf-droidsans-n4-active wf-chilanka-n4-active wf-rubikpixels-n4-active wf-robotomono-n4-active wf-cairo-n4-active wf-delicioushandrawn-n4-active wf-lora-n4-active wf-dosis-n4-active wf-active" style="--theme-background-color: #F9DCDC55; --theme-action-color: #DECDF5; --theme-action-2-color: #65617655; --theme-star-color: #DECDF5; --theme-action-font-color: #534D56; --theme-font-color: undefined;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#000000"><meta name="description" content="ChatGPT Website Builder, Generate websites including copy and images in 30 seconds."><meta property="og:title" content="Your Page Title"><meta property="og:description" content="Your page description"><meta property="og:image" content="URL of your featured image"><link href="./Stunning_files/css" rel="stylesheet"><link href="./Stunning_files/css2" rel="stylesheet"><link rel="stylesheet" id="layout-styles-anchor" href="./Stunning_files/splash-screen.css"><link rel="stylesheet" href="./Stunning_files/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"><title>Stunning</title><link rel="shortcut icon" href="https://studio.stunning.so/media/logos/stunning_icn.ico"><script type="text/javascript" async="" src="./Stunning_files/js"></script><script src="./Stunning_files/738802870177541" async=""></script><script async="" src="./Stunning_files/fbevents.js.download"></script><script type="text/javascript" async="" src="./Stunning_files/destination"></script><script type="text/javascript" async="" src="./Stunning_files/analytics.js.download"></script><script type="text/javascript" async="" src="./Stunning_files/js(1)"></script><script async="" src="./Stunning_files/gtm.js.download"></script><script>!function(e,t,a,n,g){e[n]=e[n]||[],e[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var m=t.getElementsByTagName(a)[0],r=t.createElement(a);r.async=!0,r.src="https://www.googletagmanager.com/gtm.js?id=GTM-5FS8GGP",m.parentNode.insertBefore(r,m)}(window,document,"script","dataLayer")</script><script>!function(n,u){n._rwq=u,n[u]=n[u]||function(){(n[u].q=n[u].q||[]).push(arguments)}}(window,"rewardful")</script><script async="" src="./Stunning_files/rw.js.download" data-rewardful="bc04e2"></script><script src="./Stunning_files/js(2)"></script><script src="./Stunning_files/commonninja.js.download" defer="defer"></script><script>window.cnDisableCache=!0</script><link href="./Stunning_files/244.7caba924.chunk.css" rel="stylesheet"><link href="./Stunning_files/main.3f5f84c6.chunk.css" rel="stylesheet"><style type="text/css">.apexcharts-canvas {
+  position: relative;
+  user-select: none;
+  /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */
+}
+
+
+/* scrollbar is not visible by default for legend, hence forcing the visibility */
+.apexcharts-canvas ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px;
+}
+
+.apexcharts-canvas ::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+
+.apexcharts-inner {
+  position: relative;
+}
+
+.apexcharts-text tspan {
+  font-family: inherit;
+}
+
+.legend-mouseover-inactive {
+  transition: 0.15s ease all;
+  opacity: 0.20;
+}
+
+.apexcharts-series-collapsed {
+  opacity: 0;
+}
+
+.apexcharts-tooltip {
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px -4px #999;
+  cursor: default;
+  font-size: 14px;
+  left: 62px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 12;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-tooltip.apexcharts-active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-tooltip.apexcharts-theme-light {
+  border: 1px solid #e3e3e3;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.apexcharts-tooltip.apexcharts-theme-dark {
+  color: #fff;
+  background: rgba(30, 30, 30, 0.8);
+}
+
+.apexcharts-tooltip * {
+  font-family: inherit;
+}
+
+
+.apexcharts-tooltip-title {
+  padding: 6px;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
+  background: #ECEFF1;
+  border-bottom: 1px solid #ddd;
+}
+
+.apexcharts-tooltip.apexcharts-theme-dark .apexcharts-tooltip-title {
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid #333;
+}
+
+.apexcharts-tooltip-text-value,
+.apexcharts-tooltip-text-z-value {
+  display: inline-block;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.apexcharts-tooltip-text-z-label:empty,
+.apexcharts-tooltip-text-z-value:empty {
+  display: none;
+}
+
+.apexcharts-tooltip-text-value,
+.apexcharts-tooltip-text-z-value {
+  font-weight: 600;
+}
+
+.apexcharts-tooltip-marker {
+  width: 12px;
+  height: 12px;
+  position: relative;
+  top: 0px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.apexcharts-tooltip-series-group {
+  padding: 0 10px;
+  display: none;
+  text-align: left;
+  justify-content: left;
+  align-items: center;
+}
+
+.apexcharts-tooltip-series-group.apexcharts-active .apexcharts-tooltip-marker {
+  opacity: 1;
+}
+
+.apexcharts-tooltip-series-group.apexcharts-active,
+.apexcharts-tooltip-series-group:last-child {
+  padding-bottom: 4px;
+}
+
+.apexcharts-tooltip-series-group-hidden {
+  opacity: 0;
+  height: 0;
+  line-height: 0;
+  padding: 0 !important;
+}
+
+.apexcharts-tooltip-y-group {
+  padding: 6px 0 5px;
+}
+
+.apexcharts-tooltip-candlestick {
+  padding: 4px 8px;
+}
+
+.apexcharts-tooltip-candlestick>div {
+  margin: 4px 0;
+}
+
+.apexcharts-tooltip-candlestick span.value {
+  font-weight: bold;
+}
+
+.apexcharts-tooltip-rangebar {
+  padding: 5px 8px;
+}
+
+.apexcharts-tooltip-rangebar .category {
+  font-weight: 600;
+  color: #777;
+}
+
+.apexcharts-tooltip-rangebar .series-name {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.apexcharts-xaxistooltip {
+  opacity: 0;
+  padding: 9px 10px;
+  pointer-events: none;
+  color: #373d3f;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+  background: #ECEFF1;
+  border: 1px solid #90A4AE;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-xaxistooltip.apexcharts-theme-dark {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.apexcharts-xaxistooltip:after,
+.apexcharts-xaxistooltip:before {
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.apexcharts-xaxistooltip:after {
+  border-color: rgba(236, 239, 241, 0);
+  border-width: 6px;
+  margin-left: -6px;
+}
+
+.apexcharts-xaxistooltip:before {
+  border-color: rgba(144, 164, 174, 0);
+  border-width: 7px;
+  margin-left: -7px;
+}
+
+.apexcharts-xaxistooltip-bottom:after,
+.apexcharts-xaxistooltip-bottom:before {
+  bottom: 100%;
+}
+
+.apexcharts-xaxistooltip-top:after,
+.apexcharts-xaxistooltip-top:before {
+  top: 100%;
+}
+
+.apexcharts-xaxistooltip-bottom:after {
+  border-bottom-color: #ECEFF1;
+}
+
+.apexcharts-xaxistooltip-bottom:before {
+  border-bottom-color: #90A4AE;
+}
+
+.apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:after {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:before {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip-top:after {
+  border-top-color: #ECEFF1
+}
+
+.apexcharts-xaxistooltip-top:before {
+  border-top-color: #90A4AE;
+}
+
+.apexcharts-xaxistooltip-top.apexcharts-theme-dark:after {
+  border-top-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip-top.apexcharts-theme-dark:before {
+  border-top-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip.apexcharts-active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-yaxistooltip {
+  opacity: 0;
+  padding: 4px 10px;
+  pointer-events: none;
+  color: #373d3f;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+  background: #ECEFF1;
+  border: 1px solid #90A4AE;
+}
+
+.apexcharts-yaxistooltip.apexcharts-theme-dark {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.apexcharts-yaxistooltip:after,
+.apexcharts-yaxistooltip:before {
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.apexcharts-yaxistooltip:after {
+  border-color: rgba(236, 239, 241, 0);
+  border-width: 6px;
+  margin-top: -6px;
+}
+
+.apexcharts-yaxistooltip:before {
+  border-color: rgba(144, 164, 174, 0);
+  border-width: 7px;
+  margin-top: -7px;
+}
+
+.apexcharts-yaxistooltip-left:after,
+.apexcharts-yaxistooltip-left:before {
+  left: 100%;
+}
+
+.apexcharts-yaxistooltip-right:after,
+.apexcharts-yaxistooltip-right:before {
+  right: 100%;
+}
+
+.apexcharts-yaxistooltip-left:after {
+  border-left-color: #ECEFF1;
+}
+
+.apexcharts-yaxistooltip-left:before {
+  border-left-color: #90A4AE;
+}
+
+.apexcharts-yaxistooltip-left.apexcharts-theme-dark:after {
+  border-left-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip-left.apexcharts-theme-dark:before {
+  border-left-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip-right:after {
+  border-right-color: #ECEFF1;
+}
+
+.apexcharts-yaxistooltip-right:before {
+  border-right-color: #90A4AE;
+}
+
+.apexcharts-yaxistooltip-right.apexcharts-theme-dark:after {
+  border-right-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip-right.apexcharts-theme-dark:before {
+  border-right-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip.apexcharts-active {
+  opacity: 1;
+}
+
+.apexcharts-yaxistooltip-hidden {
+  display: none;
+}
+
+.apexcharts-xcrosshairs,
+.apexcharts-ycrosshairs {
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-xcrosshairs.apexcharts-active,
+.apexcharts-ycrosshairs.apexcharts-active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-ycrosshairs-hidden {
+  opacity: 0;
+}
+
+.apexcharts-selection-rect {
+  cursor: move;
+}
+
+.svg_select_boundingRect, .svg_select_points_rot {
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+.apexcharts-selection-rect + g .svg_select_boundingRect,
+.apexcharts-selection-rect + g .svg_select_points_rot {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.apexcharts-selection-rect + g .svg_select_points_l,
+.apexcharts-selection-rect + g .svg_select_points_r {
+  cursor: ew-resize;
+  opacity: 1;
+  visibility: visible;
+}
+
+.svg_select_points {
+  fill: #efefef;
+  stroke: #333;
+  rx: 2;
+}
+
+.apexcharts-svg.apexcharts-zoomable.hovering-zoom {
+  cursor: crosshair
+}
+
+.apexcharts-svg.apexcharts-zoomable.hovering-pan {
+  cursor: move
+}
+
+.apexcharts-zoom-icon,
+.apexcharts-zoomin-icon,
+.apexcharts-zoomout-icon,
+.apexcharts-reset-icon,
+.apexcharts-pan-icon,
+.apexcharts-selection-icon,
+.apexcharts-menu-icon,
+.apexcharts-toolbar-custom-icon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  line-height: 24px;
+  color: #6E8192;
+  text-align: center;
+}
+
+.apexcharts-zoom-icon svg,
+.apexcharts-zoomin-icon svg,
+.apexcharts-zoomout-icon svg,
+.apexcharts-reset-icon svg,
+.apexcharts-menu-icon svg {
+  fill: #6E8192;
+}
+
+.apexcharts-selection-icon svg {
+  fill: #444;
+  transform: scale(0.76)
+}
+
+.apexcharts-theme-dark .apexcharts-zoom-icon svg,
+.apexcharts-theme-dark .apexcharts-zoomin-icon svg,
+.apexcharts-theme-dark .apexcharts-zoomout-icon svg,
+.apexcharts-theme-dark .apexcharts-reset-icon svg,
+.apexcharts-theme-dark .apexcharts-pan-icon svg,
+.apexcharts-theme-dark .apexcharts-selection-icon svg,
+.apexcharts-theme-dark .apexcharts-menu-icon svg,
+.apexcharts-theme-dark .apexcharts-toolbar-custom-icon svg {
+  fill: #f3f4f5;
+}
+
+.apexcharts-canvas .apexcharts-zoom-icon.apexcharts-selected svg,
+.apexcharts-canvas .apexcharts-selection-icon.apexcharts-selected svg,
+.apexcharts-canvas .apexcharts-reset-zoom-icon.apexcharts-selected svg {
+  fill: #008FFB;
+}
+
+.apexcharts-theme-light .apexcharts-selection-icon:not(.apexcharts-selected):hover svg,
+.apexcharts-theme-light .apexcharts-zoom-icon:not(.apexcharts-selected):hover svg,
+.apexcharts-theme-light .apexcharts-zoomin-icon:hover svg,
+.apexcharts-theme-light .apexcharts-zoomout-icon:hover svg,
+.apexcharts-theme-light .apexcharts-reset-icon:hover svg,
+.apexcharts-theme-light .apexcharts-menu-icon:hover svg {
+  fill: #333;
+}
+
+.apexcharts-selection-icon,
+.apexcharts-menu-icon {
+  position: relative;
+}
+
+.apexcharts-reset-icon {
+  margin-left: 5px;
+}
+
+.apexcharts-zoom-icon,
+.apexcharts-reset-icon,
+.apexcharts-menu-icon {
+  transform: scale(0.85);
+}
+
+.apexcharts-zoomin-icon,
+.apexcharts-zoomout-icon {
+  transform: scale(0.7)
+}
+
+.apexcharts-zoomout-icon {
+  margin-right: 3px;
+}
+
+.apexcharts-pan-icon {
+  transform: scale(0.62);
+  position: relative;
+  left: 1px;
+  top: 0px;
+}
+
+.apexcharts-pan-icon svg {
+  fill: #fff;
+  stroke: #6E8192;
+  stroke-width: 2;
+}
+
+.apexcharts-pan-icon.apexcharts-selected svg {
+  stroke: #008FFB;
+}
+
+.apexcharts-pan-icon:not(.apexcharts-selected):hover svg {
+  stroke: #333;
+}
+
+.apexcharts-toolbar {
+  position: absolute;
+  z-index: 11;
+  max-width: 176px;
+  text-align: right;
+  border-radius: 3px;
+  padding: 0px 6px 2px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.apexcharts-menu {
+  background: #fff;
+  position: absolute;
+  top: 100%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 3px;
+  right: 10px;
+  opacity: 0;
+  min-width: 110px;
+  transition: 0.15s ease all;
+  pointer-events: none;
+}
+
+.apexcharts-menu.apexcharts-menu-open {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-menu-item {
+  padding: 6px 7px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.apexcharts-theme-light .apexcharts-menu-item:hover {
+  background: #eee;
+}
+
+.apexcharts-theme-dark .apexcharts-menu {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .apexcharts-canvas:hover .apexcharts-toolbar {
+    opacity: 1;
+  }
+}
+
+.apexcharts-datalabel.apexcharts-element-hidden {
+  opacity: 0;
+}
+
+.apexcharts-pie-label,
+.apexcharts-datalabels,
+.apexcharts-datalabel,
+.apexcharts-datalabel-label,
+.apexcharts-datalabel-value {
+  cursor: default;
+  pointer-events: none;
+}
+
+.apexcharts-pie-label-delay {
+  opacity: 0;
+  animation-name: opaque;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+.apexcharts-canvas .apexcharts-element-hidden {
+  opacity: 0;
+}
+
+.apexcharts-hide .apexcharts-series-points {
+  opacity: 0;
+}
+
+.apexcharts-gridline,
+.apexcharts-annotation-rect,
+.apexcharts-tooltip .apexcharts-marker,
+.apexcharts-area-series .apexcharts-area,
+.apexcharts-line,
+.apexcharts-zoom-rect,
+.apexcharts-toolbar svg,
+.apexcharts-area-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
+.apexcharts-line-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
+.apexcharts-radar-series path,
+.apexcharts-radar-series polygon {
+  pointer-events: none;
+}
+
+
+/* markers */
+
+.apexcharts-marker {
+  transition: 0.15s ease all;
+}
+
+@keyframes opaque {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* Resize generated styles */
+
+@keyframes resizeanim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.resize-triggers {
+  animation: 1ms resizeanim;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.resize-triggers,
+.resize-triggers>div,
+.contract-trigger:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.resize-triggers>div {
+  background: #eee;
+  overflow: auto;
+}
+
+.contract-trigger:before {
+  width: 200%;
+  height: 200%;
+}</style><script async="" src="./Stunning_files/usetiful.js.download" id="usetifulScript" data-token="78af5f5ccfc8bf4b4a4e5d348616e4d7"></script><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" async="" src="./Stunning_files/f.txt"></script><style id="googleidentityservice_button_styles">.qJTHM{-webkit-user-select:none;color:#202124;direction:ltr;-webkit-touch-callout:none;font-family:"Roboto-Regular",arial,sans-serif;-webkit-font-smoothing:antialiased;font-weight:400;margin:0;overflow:hidden;-webkit-text-size-adjust:100%}.ynRLnc{left:-9999px;position:absolute;top:-9999px}.L6cTce{display:none}.bltWBb{word-break:break-all}.hSRGPd{color:#1a73e8;cursor:pointer;font-weight:500;text-decoration:none}.Bz112c-W3lGp{height:16px;width:16px}.Bz112c-E3DyYd{height:20px;width:20px}.Bz112c-r9oPif{height:24px;width:24px}.Bz112c-uaxL4e{-webkit-border-radius:10px;border-radius:10px}.LgbsSe-Bz112c{display:block}.S9gUrf-YoZ4jf,.S9gUrf-YoZ4jf *{border:none;margin:0;padding:0}.fFW7wc-ibnC6b>.aZ2wEe>div{border-color:#4285f4}.P1ekSe-ZMv3u>div:nth-child(1){background-color:#1a73e8!important}.P1ekSe-ZMv3u>div:nth-child(2),.P1ekSe-ZMv3u>div:nth-child(3){background-image:linear-gradient(to right,rgba(255,255,255,.7),rgba(255,255,255,.7)),linear-gradient(to right,#1a73e8,#1a73e8)!important}.haAclf{display:inline-block}.nsm7Bb-HzV7m-LgbsSe{-webkit-border-radius:4px;border-radius:4px;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-transition:background-color .218s,border-color .218s;transition:background-color .218s,border-color .218s;-webkit-user-select:none;-webkit-appearance:none;background-color:#fff;background-image:none;border:1px solid #dadce0;color:#3c4043;cursor:pointer;font-family:"Google Sans",arial,sans-serif;font-size:14px;height:40px;letter-spacing:0.25px;outline:none;overflow:hidden;padding:0 12px;position:relative;text-align:center;vertical-align:middle;white-space:nowrap;width:auto}@media screen and (-ms-high-contrast:active){.nsm7Bb-HzV7m-LgbsSe{border:2px solid windowText;color:windowText}}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe{font-size:14px;height:32px;letter-spacing:0.25px;padding:0 10px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe{font-size:11px;height:20px;letter-spacing:0.3px;padding:0 8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe{padding:0;width:40px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe{width:32px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe{width:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK{-webkit-border-radius:20px;border-radius:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.pSzOP-SxQuSe{-webkit-border-radius:16px;border-radius:16px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.purZT-SxQuSe{-webkit-border-radius:10px;border-radius:10px}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc{border:none;color:#fff}.nsm7Bb-HzV7m-LgbsSe.MFS4be-v3pZbf-Ia7Qfc{background-color:#1a73e8}.nsm7Bb-HzV7m-LgbsSe.MFS4be-JaPV2b-Ia7Qfc{background-color:#202124;color:#e8eaed}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:18px;margin-right:8px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:14px;min-width:14px;width:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:10px;min-width:10px;width:10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin-left:8px;margin-right:-4px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:10px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:4px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{-webkit-border-top-left-radius:3px;border-top-left-radius:3px;-webkit-border-bottom-left-radius:3px;border-bottom-left-radius:3px;display:-webkit-box;display:-webkit-flex;display:flex;justify-content:center;-webkit-align-items:center;align-items:center;background-color:#fff;height:36px;margin-left:-10px;margin-right:12px;min-width:36px;width:36px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c,.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:28px;margin-left:-8px;margin-right:10px;min-width:28px;width:28px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:16px;margin-left:-6px;margin-right:8px;min-width:16px;width:16px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{-webkit-border-radius:3px;border-radius:3px;margin-left:2px;margin-right:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{-webkit-border-radius:18px;border-radius:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{-webkit-border-radius:14px;border-radius:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{-webkit-border-radius:8px;border-radius:8px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-bN97Pc-sM5MNb{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-flex-direction:row;flex-direction:row;justify-content:space-between;-webkit-flex-wrap:nowrap;flex-wrap:nowrap;height:100%;position:relative;width:100%}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX{justify-content:center}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{-webkit-flex-grow:1;flex-grow:1;font-family:"Google Sans",arial,sans-serif;font-weight:500;overflow:hidden;text-overflow:ellipsis;vertical-align:top}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-weight:300}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX .nsm7Bb-HzV7m-LgbsSe-BPrWId{-webkit-flex-grow:0;flex-grow:0}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-MJoBVe{-webkit-transition:background-color .218s;transition:background-color .218s;bottom:0;left:0;position:absolute;right:0;top:0}.nsm7Bb-HzV7m-LgbsSe:hover,.nsm7Bb-HzV7m-LgbsSe:focus{-webkit-box-shadow:none;box-shadow:none;border-color:#d2e3fc;outline:none}.nsm7Bb-HzV7m-LgbsSe:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.04)}.nsm7Bb-HzV7m-LgbsSe:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.1)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.24)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.32)}.nsm7Bb-HzV7m-LgbsSe .n1UuX-DkfjY{-webkit-border-radius:50%;border-radius:50%;display:-webkit-box;display:-webkit-flex;display:flex;height:20px;margin-left:-4px;margin-right:8px;min-width:20px;width:20px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-family:"Roboto";font-size:12px;text-align:left}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .ssJRIf,.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .fmcmS{overflow:hidden;text-overflow:ellipsis}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;color:#5f6368;fill:#5f6368;font-size:11px;font-weight:400}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.MFS4be-Ia7Qfc .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{color:#e8eaed;fill:#e8eaed}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .Bz112c{height:18px;margin:-3px -3px -3px 2px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{-webkit-border-top-left-radius:0;border-top-left-radius:0;-webkit-border-bottom-left-radius:0;border-bottom-left-radius:0;-webkit-border-top-right-radius:3px;border-top-right-radius:3px;-webkit-border-bottom-right-radius:3px;border-bottom-right-radius:3px;margin-left:12px;margin-right:-10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{-webkit-border-radius:18px;border-radius:18px}.L5Fo6c-sM5MNb{border:0;display:block;left:0;position:relative;top:0}.L5Fo6c-bF1uUb{-webkit-border-radius:4px;border-radius:4px;bottom:0;cursor:pointer;left:0;position:absolute;right:0;top:0}.L5Fo6c-bF1uUb:focus{border:none;outline:none}sentinel{}</style><style>[data-uf-content] {display: none}</style><link rel="stylesheet" type="text/css" href="./Stunning_files/0.1df55681.chunk.css"><script charset="utf-8" src="./Stunning_files/0.76de869b.chunk.js.download"></script><link rel="stylesheet" type="text/css" href="./Stunning_files/68.31d60739.chunk.css"><link rel="stylesheet" href="./Stunning_files/css(1)" media="all"><script charset="utf-8" src="./Stunning_files/68.cefd15a1.chunk.js.download"></script><script type="text/javascript" charset="UTF-8" src="./Stunning_files/common.js.download"></script><script type="text/javascript" charset="UTF-8" src="./Stunning_files/util.js.download"></script><link rel="stylesheet" type="text/css" href="./Stunning_files/102.31d60739.chunk.css"><script charset="utf-8" src="./Stunning_files/102.438d8d8e.chunk.js.download"></script><link rel="stylesheet" type="text/css" href="./Stunning_files/106.31d60739.chunk.css"><script charset="utf-8" src="./Stunning_files/106.6cca46ce.chunk.js.download"></script><link rel="stylesheet" type="text/css" href="./Stunning_files/100.31d60739.chunk.css"><script charset="utf-8" src="./Stunning_files/100.c7ddb581.chunk.js.download"></script><script charset="utf-8" src="./Stunning_files/220.d977b6ba.chunk.js.download"></script><link rel="stylesheet" type="text/css" href="./Stunning_files/98.31d60739.chunk.css"><script charset="utf-8" src="./Stunning_files/98.0861afec.chunk.js.download"></script><link rel="stylesheet" type="text/css" href="./Stunning_files/97.31d60739.chunk.css"><script charset="utf-8" src="./Stunning_files/97.c7909182.chunk.js.download"></script><link rel="stylesheet" href="./Stunning_files/css(1)" media="all"><link rel="stylesheet" href="./Stunning_files/css(1)" media="all"><link rel="stylesheet" href="./Stunning_files/css(1)" media="all"><link rel="stylesheet" href="./Stunning_files/css(1)" media="all"><link rel="stylesheet" href="./Stunning_files/css(1)" media="all"><link rel="stylesheet" href="./Stunning_files/css(1)" media="all"><link rel="stylesheet" href="./Stunning_files/css(1)" media="all"><link rel="stylesheet" href="./Stunning_files/css(1)" media="all"><link rel="stylesheet" href="./Stunning_files/css(1)" media="all"><script charset="utf-8" src="./Stunning_files/216.f9925cf4.chunk.js.download"></script></head><body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed aside-enabled aside-fixed aside-primary-enabled aside-secondary-disabled sidebar-enabled" data-sidebar="on" style=""><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><div class="d-flex flex-column flex-root p-0" style="background-color: rgb(240, 241, 247);"><div class="row g-0 mb-10" style="background-color: rgb(0, 0, 0);"><div class="border border-gray-300" style="z-index: 50; position: fixed; background-color: rgb(240, 241, 247); color: rgb(0, 0, 0);"><div id="kt_header" class="header" style="width: 90%; left: 5%;"><div class="d-flex justify-content-between w-100"><div class="d-flex align-items-center col-xl-6 px-0"><div class="d-flex align-items-center header-logo-title-content row w-100"><a class="col-sm-5" href="https://stunning.so/" target="_blank"><div class="d-flex align-items-center"><img class="header-logo" src="./Stunning_files/stunning-animated.gif" style="width: 40px;"><h1 class="fs-6 fs-lg-2 fw-bolder text-black ms-2 ms-md-5 mt-3">Stunning.so</h1></div></a><div class="col-sm-7 mt-5 ps-0 mt-sm-0 d-flex align-items-center project-dashboard-ico"><a href="https://platform.stunning.so/"><div class="text-black mx-4 fs-5 fw-bold d-flex align-items-center"><i class="bi bi-arrow-bar-left fa-lg text-black mr-2"></i><span>Return to your websites</span></div></a></div></div></div><div class="d-flex align-items-center px-0 px-md-3 justify-content-between justify-content-xl-end col-xl-6 mt-5 mt-xl-0 project-dashboard-ico"><button type="button" class="btn btn-primary me-4" disabled="" style="display: none;"><span class="indicator-progress" style="display: block;">Autosaving... <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></button><div class="dropdown mx-md-10 mr-0"><button class="p-0 px-md-5 py-md-3 d-flex align-items-center" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end"><span>Theme</span><i class="ms-2 bi bi-palette fa-lg text-dark"></i></button><ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2" style="min-width: 16rem; left: -8rem;"><div class="flex flex-col gap-4 items-center py-4 w-full"><div class="px-5"><div class="d-flex align-items-center mb-4 justify-between"><div class="ms-2 d-flex align-items-center gap-2"><i class="bi bi-sun px-3 py-2" style="color: black; background-color: rgb(255, 255, 255); border-radius: 5px; cursor: pointer;"></i><i class="bi bi-sun px-3 py-2" style="color: black; background-color: rgb(237, 237, 237); border-radius: 5px; cursor: pointer;"></i><i class="bi bi-sun px-3 py-2" style="color: black; background-color: rgb(171, 205, 239); border-radius: 5px; cursor: pointer;"></i><i class="bi bi-sun px-3 py-2" style="color: black; background-color: rgb(249, 220, 220); border-radius: 5px; cursor: pointer;"></i></div></div><div class="d-flex flex-col gap-3"><h6 class="fw-bold fs-6">Color Pallettes</h6><ul><li class="group cursor-pointer mb-2"><div class="flex rounded-md overflow-hidden"><div style="background-color: rgba(244, 244, 244, 0.333); height: 30px; width: 40px;"></div><div style="background-color: rgb(255, 193, 7); height: 30px; width: 40px;"></div><div style="background-color: rgba(33, 150, 243, 0.333); height: 30px; width: 40px;"></div><div style="background-color: rgb(51, 51, 51); height: 30px; width: 40px;"></div></div></li><li class="group cursor-pointer mb-2"><div class="flex rounded-md overflow-hidden"><div style="background-color: rgba(249, 220, 220, 0.333); height: 30px; width: 40px;"></div><div style="background-color: rgb(255, 180, 133); height: 30px; width: 40px;"></div><div style="background-color: rgba(204, 109, 0, 0.333); height: 30px; width: 40px;"></div><div style="background-color: rgb(255, 255, 255); height: 30px; width: 40px;"></div></div></li><li class="group cursor-pointer mb-2"><div class="flex rounded-md overflow-hidden"><div style="background-color: rgba(248, 241, 255, 0.333); height: 30px; width: 40px;"></div><div style="background-color: rgb(222, 205, 245); height: 30px; width: 40px;"></div><div style="background-color: rgba(101, 97, 118, 0.333); height: 30px; width: 40px;"></div><div style="background-color: rgb(83, 77, 86); height: 30px; width: 40px;"></div></div></li></ul></div></div></div></ul></div><div class="dropdown mx-md-10 mr-0"><button class="p-0 px-md-5 py-md-3 d-flex align-items-center" type="button"><span>Pages</span><i class="ms-2 bi bi-layers fa-lg text-dark"></i></button></div><div class="dropdown mx-md-10 mr-0"><button class="p-0 px-md-5 py-md-3 d-flex align-items-center" type="button"><span class="text-nowrap">Site Settings</span><i class="ms-2 bi bi-gear-wide-connected fa-lg text-dark"></i></button></div><div class="dropdown mx-md-10"><button class="p-0 px-md-5 py-md-3 d-flex align-items-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end"><span class="text-nowrap">Go to</span><i class="ms-2 bi bi-chevron-down fa-lg text-dark"></i></button><ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="min-width: 16rem; left: -8rem;"><li class="group"><a href="https://platform.stunning.so/dashboard/ai-marketing"><div class="ps-4 pe-4 menu-item d-flex align-items-center" style="height: 50px;"><div><div class="d-flex flex-row align-items-center"><div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.7118 12.75C18.4989 12.75 18.3207 12.6782 18.1772 12.5346C18.0336 12.3911 17.9618 12.2129 17.9618 12C17.9618 11.7872 18.0336 11.609 18.1772 11.4654C18.3207 11.3219 18.4989 11.2501 18.7118 11.2501H20.8271C21.04 11.2501 21.2182 11.3219 21.3618 11.4654C21.5053 11.609 21.5771 11.7872 21.5771 12C21.5771 12.2129 21.5053 12.3911 21.3618 12.5346C21.2182 12.6782 21.04 12.75 20.8271 12.75H18.7118ZM18.506 19.0346L16.8195 17.7673C16.6438 17.6391 16.5426 17.4753 16.5156 17.276C16.4887 17.0766 16.5393 16.8891 16.6676 16.7135C16.7958 16.5379 16.9595 16.4366 17.1589 16.4097C17.3582 16.3827 17.5457 16.4334 17.7214 16.5616L19.4079 17.8289C19.5835 17.9571 19.6848 18.1209 19.7118 18.3202C19.7387 18.5196 19.688 18.7071 19.5598 18.8827C19.4316 19.0584 19.2679 19.1596 19.0685 19.1865C18.8691 19.2135 18.6816 19.1628 18.506 19.0346ZM17.6829 7.40005C17.5073 7.52825 17.3198 7.57889 17.1204 7.55197C16.9211 7.52504 16.7573 7.42376 16.6291 7.24812C16.5009 7.07249 16.4502 6.885 16.4772 6.68565C16.5041 6.4863 16.6054 6.32252 16.781 6.1943L18.4676 4.927C18.6432 4.7988 18.8307 4.74816 19.03 4.77507C19.2294 4.80199 19.3932 4.90327 19.5214 5.07892C19.6496 5.25456 19.7002 5.44205 19.6733 5.6414C19.6464 5.84075 19.5451 6.00452 19.3695 6.13272L17.6829 7.40005ZM5.25026 18.4808V14.5769H4.23101C3.73231 14.5769 3.30636 14.4003 2.95314 14.0471C2.59994 13.6939 2.42334 13.268 2.42334 12.7693V11.2308C2.42334 10.7321 2.59994 10.3062 2.95314 9.95295C3.30636 9.59975 3.73231 9.42315 4.23101 9.42315H8.09639L11.206 7.56355C11.5073 7.38278 11.8111 7.38118 12.1175 7.55875C12.4239 7.73632 12.5771 7.99753 12.5771 8.3424V15.6577C12.5771 16.0026 12.4239 16.2638 12.1175 16.4413C11.8111 16.6189 11.5073 16.6173 11.206 16.4365L8.09639 14.5769H6.75021V18.4808H5.25026ZM13.9618 15.1193V8.88082C14.3541 9.23596 14.6701 9.68339 14.9098 10.2231C15.1496 10.7629 15.2695 11.3552 15.2695 12C15.2695 12.6449 15.1496 13.2372 14.9098 13.777C14.6701 14.3167 14.3541 14.7641 13.9618 15.1193ZM11.0772 14.5847V9.41542L8.51176 10.9231H4.23101C4.1541 10.9231 4.08358 10.9552 4.01946 11.0193C3.95536 11.0834 3.92331 11.1539 3.92331 11.2308V12.7693C3.92331 12.8462 3.95536 12.9167 4.01946 12.9808C4.08358 13.0449 4.1541 13.077 4.23101 13.077H8.51176L11.0772 14.5847Z" fill="#828597"></path></svg></div><span class="ps-3 menu-title" style="color: black;">AI Marketing</span></div></div></div></a></li><li class="group"><a href="https://platform.stunning.so/dashboard/ai-genie"><div class="ps-4 pe-4 menu-item d-flex align-items-center" style="height: 50px;"><div><div class="d-flex flex-row align-items-center"><div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5497 18.1999L15.7247 11.9999H11.7247L12.4497 6.32494L7.82466 12.9999H11.2997L10.5497 18.1999ZM9.57664 14.4999H6.53431C6.19843 14.4999 5.95228 14.3512 5.79586 14.0538C5.63946 13.7563 5.65869 13.4698 5.85356 13.1942L12.4054 3.74231C12.54 3.55386 12.7118 3.42502 12.9208 3.35579C13.1298 3.28656 13.3471 3.29233 13.5727 3.37311C13.7983 3.45388 13.9634 3.59201 14.0679 3.78751C14.1724 3.98303 14.2112 4.1936 14.1842 4.41924L13.4323 10.5H17.1631C17.5195 10.5 17.7708 10.6596 17.9169 10.9788C18.0631 11.298 18.0201 11.5955 17.7881 11.8711L10.5439 20.5479C10.399 20.7197 10.2221 20.831 10.0131 20.8816C9.80417 20.9322 9.60033 20.912 9.40161 20.821C9.20289 20.73 9.04874 20.5909 8.93914 20.4037C8.82952 20.2165 8.78817 20.0101 8.81509 19.7845L9.57664 14.4999Z" fill="#828597"></path></svg></div><span class="ps-3 menu-title" style="color: black;">AI Genie</span></div></div></div></a></li><li><a href="https://platform.stunning.so/dashboard/billing"><div class="ps-4 pe-4 menu-item d-flex align-items-center" style="height: 50px;"><div><div class="d-flex flex-row align-items-center"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#828597" class="bi bi-wallet2" viewBox="0 0 24 24"><path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"></path></svg></div><span class="ps-3 menu-title" style="color: black;">Billing</span></div></div></div></a></li><li><a href="https://stunningso.getrewardful.com/signup/"><div class="ps-4 pe-4 menu-item d-flex align-items-center" style="height: 50px;"><div><div class="d-flex flex-row align-items-center"><div><svg width="24" height="24" viewBox="0 0 24 24" fill="#828597" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_600_1798" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="#828597"></rect></mask><g mask="url(#mask0_600_1798)"><path d="M3.25 20.7501V19.1059L4.74995 17.606V20.7501H3.25ZM7.25 20.7501V15.1059L8.74995 13.606V20.7501H7.25ZM11.25 20.7501V13.606L12.75 15.1309V20.7501H11.25ZM15.25 20.7501V15.1309L16.75 13.631V20.7501H15.25ZM19.25 20.7501V11.1059L20.75 9.60596V20.7501H19.25ZM3.25 15.2193V13.1059L9.99998 6.35593L14 10.3559L20.75 3.60596V5.71936L14 12.4693L9.99998 8.46933L3.25 15.2193Z" fill="#828597"></path></g></svg></div><span class="ps-3 menu-title" style="color: black;">Affiliate &amp; Influencers</span></div></div></div></a></li></ul></div><div class="d-flex gap-3 mx-md-10"><div class="dropdown"><button class="p-0 px-md-5 py-md-3 d-flex align-items-center" type="button"><span>Undo</span><i class="bi bi-arrow-counterclockwise fa-lg" style="color: black;"></i></button></div><div class="dropdown"><button class="p-0 px-md-5 py-md-3 d-flex align-items-center" type="button"><span>Redo</span><i class="bi bi-arrow-clockwise fa-lg" style="color: black;"></i></button></div></div><div class="d-flex align-items-center"><button class="btn btn-primary d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-play me-5" viewBox="0 0 16 16"><path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"></path></svg></button><div class="dropdown-menu dropdown-menu-end mt-2" style="min-width: 20%;"><div class="d-flex flex-column p-5"><div class="mb-5"><label class="form-check-label fw-bold ms-2 mb-2">Status</label><div class="form-check form-switch form-check-custom form-check-solid"><label class="form-check-label me-2">Draft</label><input class="form-check-input" type="checkbox" id="flexSwitchDefault"><label class="form-check-label">Published</label></div></div><label class="form-check-label fw-bold ms-2 mb-5">Preview:<a href="https://studio.stunning.so/project/tunescapoe001" target="_blank" class="form-check-label fw-bold ms-2 mb-5">studio.stunning.so/project/tunescapoe001</a></label><button type="button" class="btn me-2 btn-primary" disabled=""><span class="indicator-label" style="border-radius: 5px;">Save</span></button></div></div></div></div></div></div></div></div><div style="margin-top: 3.8rem;"><div class="bg-white wrapper col-md-12 p-5 top-0 bottom-0" id="kt_wrapper" style="border-radius: 1rem; margin-top: 2rem;"><div id="kt_aside" class="rounded ms-4 mb-4 aside" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-toggle="#kt_aside_toggler" style="position: fixed; margin-top: 10rem; width: 20%; height: 80%; background-color: rgb(255, 255, 255); border: 1px solid rgb(170, 170, 170); box-shadow: rgba(181, 181, 181, 0.84) 6px 6px 37px -5px;"><div class="flex-column align-items-center mt-2 pb-4 rounded px-4" id="kt_aside_nav" style="overflow: hidden scroll; width: 100%;"><div class="p-0 rounded" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside_nav" data-kt-scroll-offset="10px"><div class="card card-custom shadow-none rounded p-0" style="position: relative; height: 100%;"><div class="card-header align-items-center border-0 pt-0 pb-0 mt-0 mb-0 pe-0" id="kt_explore_header" style="min-height: 50px;"><h5 class="card-title fw-bolder text-dark">Hero</h5><div class="btn btn-icon btn-sm"><span class="svg-icon svg-icon-2"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="mh-50px"><g id="Group" transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000"><rect fill="#000000" id="Rectangle-185" x="0" y="7" width="16" height="2" rx="1"></rect><rect fill="#000000" id="Rectangle-185-Copy" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000) " x="0" y="7" width="16" height="2" rx="1"></rect></g></svg></span></div></div><div class="separator border-1 m-0"></div><div class="card-body p-0" id="kt_explore_body"><div id="kt_explore_scroll" class="scroll-y" data-kt-scroll="true" data-kt-scroll-height="auto" data-kt-scroll-wrappers="#kt_explore_body" data-kt-scroll-dependencies="#kt_explore_header, #kt_explore_footer" data-kt-scroll-offset="5px"><div class="card card-custom rounded-0 BlockEditorPage-styles"><form class="form"><div class="card-body p-2 ms-2"><div class="tab-content pt-3"><div class="tab-pane active"><div class=""><div class="pt-2"><label for="57121095-abdf-4c4d-92ef-54c5397f2036-value" class="form-label text-dark fs-6 ms-4">Title</label><div class="input-group input-group-sm"><input id="57121095-abdf-4c4d-92ef-54c5397f2036-value" class="form-control form-control-sm text-dark" placeholder="Title" value="Unleash Your Musical Journey with TuneScape" style="border-radius: 5px;"></div><div class="accordion accordion-borderless" id="accordionStyleTitle"><div class="accordion-item "><div id="collapseTitleStyle" class="style-collaps-body rounded accordion-collapse collapse" data-bs-parent="#accordionStyleTitle"><div class="accordion-body"><div class="d-flex justify-content-between"><div class="me-5"><label for="inputColor" class="form-label text-dark">Color</label><input type="color" id="inputColor" class="form-control form-control-sm text-white" value="#020202" style="width: 100px; border: 1px solid rgb(221, 221, 221); border-radius: 5px;"></div><div class=""><label for="inputFontSize" class="form-label text-dark">Font Size</label><input type="number" min="10" id="inputFontSize" class="input-group input-group-sm form-control form-control-sm text-dark" value="71" style="border: 1px solid rgb(221, 221, 221); border-radius: 5px;"></div></div><div class="d-flex justify-content-between my-5"><div class="me-5"><label for="inputLetterSpacing" class="form-label text-dark">Spacing</label><input type="number" id="inputLetterSpacing" class="input-group input-group-sm form-control form-control-sm text-dark w-100" value="1" style="border: 1px solid rgb(221, 221, 221); border-radius: 5px;"></div><div><label for="inputLineHeight" class="form-label text-dark">Height</label><input type="number" min="10" id="inputLineHeight" class="input-group input-group-sm form-control form-control-sm text-darkw-100" value="70" style="border: 1px solid rgb(221, 221, 221); border-radius: 5px;"></div></div><label class="form-label text-dark w-100 mt-3">Text Align</label><div class="btn-group w-100" role="group"><button type="button" value="left" class="btn fs-6" style="height: 40px; border-right: 1px solid rgb(221, 221, 221);">Left</button><button type="button" value="center" class="btn fs-6" style="height: 40px; border-right: 1px solid rgb(221, 221, 221);">Center</button><button type="button" value="right" class="btn fs-6" style="height: 40px;">Right</button></div><div class=" text-dark  mt-5"><label for="fontWeight" class="form-label text-dark">Font Weight</label><div class="w-100"><select name="fontWeight" id="fontWeight" class="form-select form-select-sm text-dark" style="height: 40px; border-radius: 5px;"><option value="">Choose Font Weight</option><option value="normal">Normal</option><option value="bold">Bold</option><option value="bolder">Bolder</option><option value="lighter">Lighter</option></select></div></div><div class=" text-dark  mt-5"><label for="fontFamily" class="form-label text-dark">Font Family</label><div class="w-100"><select name="fontFamily" id="fontFamily" class="form-select form-select-sm text-dark" style="height: 40px; border-radius: 5px;"><option value="">Choose Font Family</option><option value="Dosis">Dosis</option><option value="Lora">Lora</option><option value="Delicious Handrawn">Delicious Handrawn</option><option value="Cairo">Cairo</option><option value="Roboto Mono">Roboto Mono</option><option value="Rubik Pixels">Rubik Pixels</option><option value="Chilanka">Chilanka</option><option value="Droid Sans">Droid Sans</option></select></div></div></div></div></div></div></div></div><div class=""><div class="separator border-1 mt-4 mb-4"></div><div class="pt-2"><label for="17106820-90ab-44cf-9d86-3b8cd1b54695-value" class="form-label text-dark fs-6 ms-4">Subtitle</label><div class="input-group input-group-sm"><input id="17106820-90ab-44cf-9d86-3b8cd1b54695-value" class="form-control form-control-sm text-dark" placeholder="Subtitle" value="Join us! Discover and share music." style="border-radius: 5px;"></div><div class="accordion accordion-borderless" id="accordionStyleTitle"><div class="accordion-item "><div id="collapseSubTitleStyle" class="style-collaps-body rounded accordion-collapse collapse" data-bs-parent="#accordionStyleTitle"><div class="accordion-body"><div class="d-flex justify-content-between"><div class="me-5"><label for="inputColor" class="form-label form-label-sm text-dark">Color</label><input type="color" id="inputColor" class="form-control form-control-sm text-white" value="#A1A09D" style="width: 100px; border: 1px solid rgb(221, 221, 221); border-radius: 5px;"></div><div class=""><label for="inputFontSize" class="form-label form-label-sm text-dark">Font Size</label><input type="number" min="10" id="inputFontSize" class="input-group input-group-sm form-control form-control-sm text-dark" value="18" style="border: 1px solid rgb(221, 221, 221); border-radius: 5px;"></div></div><div class="d-flex justify-content-between my-5"><div class="me-5"><label for="inputLetterSpacing" class="form-label text-dark">Spacing</label><input type="number" id="inputLetterSpacing" class="input-group input-group-smform-control form-control-sm text-dark w-100" value="1" style="border: 1px solid rgb(221, 221, 221); border-radius: 5px;"></div><div><label for="inputLineHeight" class="form-label text-dark">Height</label><input type="number" min="10" id="inputLineHeight" class="input-group input-group-smform-control form-control-sm text-dark w-100" value="70" style="border: 1px solid rgb(221, 221, 221); border-radius: 5px;"></div></div><label class="form-label text-dark w-100 mt-3">Text Align</label><div class="btn-group w-100" role="group"><button type="button" value="left" class="btn fs-6" style="height: 40px; border-right: 1px solid rgb(221, 221, 221);">Left</button><button type="button" value="center" class="btn fs-6" style="height: 40px; border-right: 1px solid rgb(221, 221, 221);">Center</button><button type="button" value="right" class="btn fs-6" style="height: 40px;">Right</button></div><div class=" text-dark  mt-5"><label for="fontWeight" class="form-label text-dark">Font Weight</label><div class="w-100"><select name="fontWeight" id="fontWeight" class="form-select form-select-sm text-dark"><option value="">Choose Font Weight</option><option value="normal">Normal</option><option value="bold">Bold</option><option value="bolder">Bolder</option><option value="lighter">Lighter</option></select></div></div><div class=" text-dark  mt-5"><label for="fontFamily" class="form-label text-dark">Font Family</label><div class="w-100"><select name="fontFamily" id="fontFamily" class="form-select form-select-sm text-dark"><option value="">Choose Font Family</option><option value="Dosis">Dosis</option><option value="Lora">Lora</option><option value="Delicious Handrawn">Delicious Handrawn</option><option value="Cairo">Cairo</option><option value="Roboto Mono">Roboto Mono</option><option value="Rubik Pixels">Rubik Pixels</option><option value="Chilanka">Chilanka</option><option value="Droid Sans">Droid Sans</option></select></div></div></div></div></div></div></div></div><div class=""><div class="separator border-1 mt-4 mb-4"></div><div class="pt-2"><h6 class="form-label text-dark mb-3 fs-6 ms-4">Description</h6><div class="input-group input-group-sm"><textarea id="c1dc2099-ae52-4ad1-bc9e-7ea2f56fd264-value" class="form-control form-control-sm text-dark" placeholder="Description" rows="2" style="border-radius: 5px;">Stream and Discover Endless Music with TuneScape: Your Ultimate Melodic Haven</textarea></div><div class="accordion accordion-borderless" id="accordionStyleDesc"><div class="accordion-item"><div id="collapseDescStyle" class="style-collaps-body rounded accordion-collapse collapse" data-bs-parent="#accordionStyleDesc"><div class="accordion-body"><div class="d-flex justify-content-between"><div class="me-5"><label for="inputColor" class="form-label text-dark">Color</label><input type="color" id="inputColor" class="form-control form-control-sm text-dark" value="#757f8a" style="width: 100px; border: 1px solid rgb(221, 221, 221); border-radius: 5px;"></div><div class=""><label for="inputFontSize" class="form-label text-dark">Font Size</label><input type="number" min="10" id="inputFontSize" class="form-control form-control-sm text-dark" value="19" style="width: 100px; border: 1px solid rgb(221, 221, 221); border-radius: 5px;"></div></div><div class="d-flex justify-content-between my-5"><div class="me-5"><label for="inputLetterSpacing" class="form-label text-dark">Letter Spacing</label><input type="number" id="inputLetterSpacing" class="form-control form-control-sm text-dark w-100" value="1" style="border: 1px solid rgb(221, 221, 221); border-radius: 5px;"></div><div><label for="inputLineHeight" class="form-label text-dark">Line Height</label><input type="number" min="10" id="inputLineHeight" class="form-control form-control-sm text-dark w-100" value="50" style="border: 1px solid rgb(221, 221, 221); border-radius: 5px;"></div></div><label class="form-label text-dark w-100 mt-3">Text Align</label><div class="btn-group w-100" role="group"><button type="button" value="left" class="btn fs-6" style="height: 40px; border-right: 1px solid rgb(221, 221, 221);">Left</button><button type="button" value="center" class="btn fs-6" style="height: 40px; border-right: 1px solid rgb(221, 221, 221);">Center</button><button type="button" value="right" class="btn fs-6">Right</button></div><div class=" text-dark  mt-5"><label for="fontWeight" class="form-label text-dark">Font Weight</label><div class="w-100"><select name="fontWeight" id="fontWeight" class="form-select form-select-sm text-dark" style="border-radius: 5px;"><option value="">Choose Font Weight</option><option value="normal">Normal</option><option value="bold">Bold</option><option value="bolder">Bolder</option><option value="lighter">Lighter</option></select></div></div><div class=" text-dark  mt-5"><label for="fontFamily" class="form-label text-dark">Font Family</label><div class="w-100"><select name="fontFamily" id="fontFamily" class="form-select form-select-sm text-dark" style="border-radius: 5px;"><option value="">Choose Font Family</option><option value="Dosis">Dosis</option><option value="Lora">Lora</option><option value="Delicious Handrawn">Delicious Handrawn</option><option value="Cairo">Cairo</option><option value="Roboto Mono">Roboto Mono</option><option value="Rubik Pixels">Rubik Pixels</option><option value="Chilanka">Chilanka</option><option value="Droid Sans">Droid Sans</option></select></div></div></div></div></div></div></div></div><div class=""><div class="separator border-1 mt-4 mb-4"></div><div class="pt-2"><label class="form-label text-dark ms-4">List</label><span class="tap-header-container"><ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 custom-scroll-items"><li class="nav-item d-inline-block"><a class="d-inline-block nav-link text-dark tap-header-style active" data-bs-toggle="tab" href="https://studio.stunning.so/editor/tunescapoe001#list_tab_pane_1_Woman_in_Blue_Tank_Top_Using_Macbook">Woman in Blue Tank Top Using Macbook</a></li></ul></span><div class="tab-content" id="myTabContent"><div class="tab-pane fade show active" id="list_tab_pane_1_Woman_in_Blue_Tank_Top_Using_Macbook" role="tabpanel"><div></div><div class=" my-4"><div class=""><div class="row"><div class="col-12"><label for="undefined-value" class="form-label text-dark fs-6 ms-4 d-block">Image</label></div><div class="col-12"><input id="0-src" type="button" class="form-control form-control-sm" placeholder="Url" value="Change image"><img id="undefined-value" src="./Stunning_files/pexels-photo-3794246.jpeg" class="form-control form-control-sm"></div><div class="col-12"><input id="undefined-value" type="file" class="form-control form-control-sm" accept="image/png, image/jpeg, image/jpg, image/svg, image/gif"></div></div></div><span class="text-dark small">*Maximum image size is 3MB.</span><button class="btn btn-editor-image w-100 my-3 disabled" style="background-color: rgb(134, 1, 255); color: white; height: 40px;"> Upload Image</button></div></div></div></div></div><div class=""><div class="separator border-1 mt-4 mb-4"></div><div class="pt-2"><label for="f57c4b82-1364-43c2-9b5c-3f7f480995fe-value" class="form-label text-dark fs-6 ms-4">Button 1</label><div class="input-group input-group-sm"><input id="f57c4b82-1364-43c2-9b5c-3f7f480995fe-value" class="form-control form-control-sm text-dark" placeholder="Button 1" value="Listen Now" style="border-radius: 5px;"></div><div class="input-group input-group-sm mt-2"><input id="f57c4b82-1364-43c2-9b5c-3f7f480995fe-href" type="text" class="form-control form-control-sm text-dark" placeholder="https://..." value="" style="border-radius: 5px;"></div><div class="accordion accordion-borderless" id="accordionStyleCTA"><div class="accordion-item"><div id="collapseCTAStyle" class="style-collaps-body rounded accordion-collapse collapse" data-bs-parent="#accordionStyleCTA"><div class="accordion-body"><div class="d-flex justify-content-between"><div class="me-5"><label for="inputColor" class="form-label text-dark">Font Color</label><input type="color" id="inputColor" class="form-control text-dark" value="rgb(0, 0, 0)" style="height: 40px; width: 100px; border-radius: 5px;"></div><div class="me-5"><label for="inputColor" class="form-label text-dark">Background</label><input type="color" id="inputColor" class="form-control text-dark" value="rgb(0, 0, 0)" style="height: 40px; width: 100px; border-radius: 5px;"></div></div></div></div></div></div></div></div><div class=""><div class="separator border-1 mt-4 mb-4"></div><div class="pt-2"><label for="6e3bdb58-31a7-44aa-8452-e2c45d61ef97-value" class="form-label text-dark fs-6 ms-4">Button 2</label><div class="input-group input-group-sm"><input id="6e3bdb58-31a7-44aa-8452-e2c45d61ef97-value" class="form-control form-control-sm text-dark" placeholder="Button 2" value="Get Started&quot;
+&quot;Try for Free" style="border-radius: 5px;"></div><div class="input-group input-group-sm mt-2"><input id="6e3bdb58-31a7-44aa-8452-e2c45d61ef97-href" type="text" class="form-control form-control-sm text-dark" placeholder="https://..." value="" style="border-radius: 5px;"></div><div class="accordion accordion-borderless" id="accordionStyleCTA"><div class="accordion-item"><div id="collapseCTAStyle" class="style-collaps-body rounded accordion-collapse collapse" data-bs-parent="#accordionStyleCTA"><div class="accordion-body"><div class="d-flex justify-content-between"><div class="me-5"><label for="inputColor" class="form-label text-dark">Font Color</label><input type="color" id="inputColor" class="form-control text-dark" value="rgb(0, 0, 0)" style="height: 40px; width: 100px; border-radius: 5px;"></div><div class="me-5"><label for="inputColor" class="form-label text-dark">Background</label><input type="color" id="inputColor" class="form-control text-dark" value="rgb(0, 0, 0)" style="height: 40px; width: 100px; border-radius: 5px;"></div></div></div></div></div></div></div></div></div><div class="tab-pane"><div class="row mb-10"><label class="col-lg-3 col-form-label text-lg-end">Display:</label><div class="col-lg-9 col-xl-4"><div class="form-check form-check-custom form-check-solid form-switch mb-2"><input class="form-check-input" type="checkbox" name="layout-builder[layout][toolbar][display]" checked=""></div><div class="form-text text-muted">Display toolbar</div></div></div><div class="row mb-10"><label class="col-lg-3 col-form-label text-lg-end">Width:</label><div class="col-lg-9 col-xl-4"><select class="form-select form-select-solid" name="layout-builder[layout][toolbar][width]"><option value="fluid">Fluid</option><option value="fixed">Fixed</option></select><div class="form-text text-muted">Select layout width type.</div></div></div></div><div class="tab-pane"><div class="row mb-10"><label class="col-lg-3 col-form-label text-lg-end">Width:</label><div class="col-lg-9 col-xl-4"><select class="form-select form-select-solid" name="layout-builder[layout][content][width]"><option value="fluid">Fluid</option><option value="fixed">Fixed</option></select><div class="form-text text-muted">Select layout width type.</div></div></div></div></div></div></form></div></div></div></div></div></div></div><div class="d-flex flex-column flex-column-fluid"><div class="content fs-6 row flex-column-fluid p-0" id="kt_content"><div class="card"><div class="card-body p-0"><div id="0" style="position: relative;"><div id="kt_blockedit_toggle" data-kt-drawer-show="true" data-kt-drawer-target="#kt_drawer_example_permanent" class="" style="position: absolute; inset: 0px; z-index: 30;"></div><div class="row g-0 justify-content-between align-items-center z-index-1"><section class="overflow-hidden"><div class="flex items-center justify-between px-7 xl:px-40 py-5 theme-bg-color"><div class="w-auto"><div class="flex flex-wrap items-center"><div class="w-auto mr-14"><a href="https://studio.stunning.so/editor/tunescapoe001#"><img src="./Stunning_files/static-logo.png" width="100px" alt=""></a></div></div></div><div class="w-auto"><div class="flex flex-wrap items-center"><div class="w-auto hidden lg:block"><ul class="flex items-center mr-16"><li class="nav-item"><a class="mr-9 font-medium hover:text-gray-700" href="https://studio.stunning.so/editor/home">Home</a></li><li class="nav-item"><a class="mr-9 font-medium hover:text-gray-700" href="https://studio.stunning.so/editor/discover">Discover</a></li><li class="nav-item"><a class="mr-9 font-medium hover:text-gray-700" href="https://studio.stunning.so/editor/playlist">Playlist</a></li><li class="nav-item"><a class="mr-9 font-medium hover:text-gray-700" href="https://studio.stunning.so/editor/settings">Settings</a></li></ul></div><div class="w-auto hidden lg:block"><div class="inline-block"><a href="https://studio.stunning.so/editor/tunescapoe001" target="_blank"><button class="py-3 px-5 w-full text-white font-semibold rounded-xl theme-bg-action-color theme-bg-action-hover-color theme-text-color transition-all ease-in-out duration-200" type="button">Join Now</button></a></div></div><div class="w-auto lg:hidden"><a href="https://studio.stunning.so/editor/tunescapoe001#"><svg class="navbar-burger theme-text-action-color" width="51" height="51" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="56" height="56" rx="28" fill="currentColor"></rect><path d="M37 32H19M37 24H19" class="theme-stroke-color" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div></div></div></div><div class="hidden navbar-menu fixed top-0 left-0 bottom-0 w-4/6 sm:max-w-xs z-50"><div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-80"></div><nav class="relative z-10 px-9 pt-8 bg-white h-full overflow-y-auto"><div class="flex flex-wrap justify-between h-full"><div class="w-full"><div class="flex items-center justify-between -m-2"><div class="w-auto p-2"><a class="inline-block" href="https://studio.stunning.so/editor/tunescapoe001#"><img src="./Stunning_files/static-logo.png" alt=""></a></div><div class="w-auto p-2"><a class="navbar-burger" href="https://studio.stunning.so/editor/tunescapoe001#"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 18L18 6M6 6L18 18" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div></div></div><div class="flex flex-col justify-center py-16 w-full"><ul><li class="mb-12"><a class="font-medium hover:text-gray-700" href="https://studio.stunning.so/editor/home">Home</a></li><li class="mb-12"><a class="font-medium hover:text-gray-700" href="https://studio.stunning.so/editor/discover">Discover</a></li><li class="mb-12"><a class="font-medium hover:text-gray-700" href="https://studio.stunning.so/editor/playlist">Playlist</a></li><li class="mb-12"><a class="font-medium hover:text-gray-700" href="https://studio.stunning.so/editor/settings">Settings</a></li></ul></div><div class="flex flex-col justify-end w-full pb-8"><div class="flex flex-wrap"><div class="w-full"><div class="block"><a href="https://studio.stunning.so/editor/tunescapoe001" target="_blank"><button class="py-3 px-5 w-full text-white font-semibold rounded-xl theme-bg-action-color theme-bg-action-hover-color theme-text-color transition-all ease-in-out duration-200" type="button">Join Now</button></a></div></div></div></div></div></nav></div></section></div></div><div id="1" style="position: relative;"><button class="btn btn-outline btn-outline-dark btn-active-light-dark btn-bg-white fs-6" style="position: absolute; top: -24px; left: 25%; transform: translate(-50%, 0%); border-radius: 5px; z-index: 31;">Regenerate <i class="bi bi-stars"></i></button><button class="btn btn-outline btn-outline-dark btn-active-light-dark btn-bg-white fs-6" style="position: absolute; top: -24px; right: 40%; transform: translate(-50%, 0%); border-radius: 5px; z-index: 31;">Add section<i class="bi bi-plus ms-3"></i></button><button class="btn btn-outline btn-outline-dark btn-active-light-dark btn-bg-white fs-6" style="position: absolute; top: -24px; right: 15%; transform: translate(-50%, 0%); border-radius: 5px; z-index: 31;">Edit section<i class="bi bi-pencil ms-3"></i></button><div class="d-flex align-items-start border border-gray-500 justify-content-end mt-2 me-2 top-0 end-0" style="position: absolute; border-radius: 5px; background: white; z-index: 33;"><div class="card card-custom"><div class="card-body p-0"><div class="d-flex flex-grow-1 flex-center action-btns-editor-page"><button class="btn btn-icon btn-sm btn-active-bg-dark ms-1"><i class="bi bi-trash fs-5"></i></button><button class="btn btn-icon btn-sm btn-active-bg-dark ms-1"><i class="bi bi-arrow-up fs-5"></i></button><button class="btn btn-icon btn-sm btn-active-bg-dark ms-1"><i class="bi bi-arrow-down fs-5"></i></button><button class="btn btn-icon btn-sm btn-active-bg-dark ms-1"><i class="bi bi-pencil fs-5"></i></button></div></div></div></div><div id="kt_blockedit_toggle" data-kt-drawer-show="true" data-kt-drawer-target="#kt_drawer_example_permanent" class="border border-gray-300" style="position: absolute; inset: 0px; z-index: 30;"></div><div class="row g-0 justify-content-between align-items-center z-index-1"><section class="theme-bg-color"><div class="overflow-hidden py-16"><div class="container px-4 mx-auto"><div class="flex flex-wrap -m-8"><div class="w-full md:w-1/2 p-8"><div class="inline-block mb-6 px-2 py-1 font-semibold theme-bg-action-2-color text-black rounded-full"><div class="flex flex-wrap items-center -m-1"><div class="w-auto p-1"><a class="text-sm" href="https://studio.stunning.so/editor/tunescapoe001">Join us! Discover and share music.</a></div><div class="w-auto p-1"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.66667 3.41675L12.75 7.50008M12.75 7.50008L8.66667 11.5834M12.75 7.50008L2.25 7.50008" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div></div><h1 class="mb-6 text-6xl md:text-8xl lg:text-10xl font-bold font-heading md:max-w-xl leading-none">Unleash Your Musical Journey with TuneScape</h1><p class="mb-11 text-lg text-gray-900 font-medium md:max-w-md">Stream and Discover Endless Music with TuneScape: Your Ultimate Melodic Haven</p><div class="flex flex-wrap -m-2.5 mb-20"><div class="w-full md:w-auto p-2.5"><div class="block"><a href="https://studio.stunning.so/editor/tunescapoe001"><button class="py-4 px-6 w-full text-white font-semibold rounded-xl theme-bg-action-color theme-bg-action-hover-color theme-text-color transition-all ease-in-out duration-200" type="button">Listen Now</button></a></div></div><div class="w-full md:w-auto p-2.5"><div class="block"><a href="https://studio.stunning.so/editor/tunescapoe001"><button class="py-4 px-9 w-full font-semibold border border-gray-300 hover:border-gray-400 rounded-xl focus:ring focus:ring-gray-50 bg-transparent hover:bg-gray-100 transition ease-in-out duration-200" type="button"><div class="flex flex-wrap justify-center items-center -m-1"><div class="w-auto p-1"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.75 3.75C2.75 2.92157 3.42157 2.25 4.25 2.25H6.70943C7.03225 2.25 7.31886 2.45657 7.42094 2.76283L8.5443 6.13291C8.66233 6.48699 8.50203 6.87398 8.1682 7.0409L6.47525 7.88737C7.30194 9.72091 8.77909 11.1981 10.6126 12.0247L11.4591 10.3318C11.626 9.99796 12.013 9.83767 12.3671 9.9557L15.7372 11.0791C16.0434 11.1811 16.25 11.4677 16.25 11.7906V14.25C16.25 15.0784 15.5784 15.75 14.75 15.75H14C7.7868 15.75 2.75 10.7132 2.75 4.5V3.75Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="w-auto p-1"><span>Get Started"
+"Try for Free</span></div></div></button></a></div></div></div><p class="mb-6 text-sm text-gray-500 font-semibold uppercase">Trusted and loved by 100+ tech first teams</p><div class="flex flex-wrap -m-3"><div class="w-auto p-3"><img src="./Stunning_files/brand.png" alt=""></div><div class="w-auto p-3"><img src="./Stunning_files/brand2.png" alt=""></div><div class="w-auto p-3"><img src="./Stunning_files/brand3.png" alt=""></div></div></div><div class="w-full md:w-1/2 p-8"><img width="600" class="rounded-2xl transform hover:-translate-y-16 transition ease-in-out duration-1000" alt="" src="./Stunning_files/pexels-photo-3794246.jpeg"></div></div></div></div></section></div></div><div id="2" style="position: relative;"><div id="kt_blockedit_toggle" data-kt-drawer-show="true" data-kt-drawer-target="#kt_drawer_example_permanent" class="" style="position: absolute; inset: 0px; z-index: 30;"></div><div class="row g-0 justify-content-between align-items-center z-index-1"><section class="relative py-32 theme-bg-color overflow-hidden"><img class="absolute right-0 bottom-0" src="./Stunning_files/gradient6.svg" alt=""><div class="container px-4 mx-auto"><div class="flex flex-wrap -m-8"><div class="w-full md:w-1/2 p-8"><div class="flex flex-col justify-between h-full md:max-w-md"><div><h2 class="mb-8 text-6xl md:text-8xl xl:text-10xl font-bold font-heading tracking-px-n leading-none">Affordable and Flexible Pricing Options for TuneScapoe</h2><p class="mb-16 font-medium text-gray-600 leading-relaxed">Our pricing page offers an immersive music streaming experience, allowing users to discover and enjoy a vast library of music while effortlessly curating their personal playlists, just like Spotify.</p></div><div><h3 class="mb-3 text-gray-900 font-semibold">Trusted by 1M+ customers</h3><div class="flex flex-wrap items-center -m-1"><div class="w-auto p-1"><div class="flex flex-wrap -m-0.5"><div class="w-auto p-0.5"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="theme-star-color" d="M7.707 1.21267C8.02812 0.224357 9.42632 0.224357 9.74744 1.21267L10.8948 4.74387C11.0384 5.18586 11.4503 5.48511 11.915 5.48511H15.6279C16.6671 5.48511 17.0992 6.81488 16.2585 7.42569L13.2547 9.60809C12.8787 9.88126 12.7214 10.3654 12.865 10.8074L14.0123 14.3386C14.3335 15.327 13.2023 16.1488 12.3616 15.538L9.35775 13.3556C8.98178 13.0824 8.47266 13.0824 8.09669 13.3556L5.09287 15.538C4.25216 16.1488 3.12099 15.327 3.44211 14.3386L4.58947 10.8074C4.73308 10.3654 4.57575 9.88126 4.19978 9.60809L1.19596 7.42569C0.355248 6.81488 0.787317 5.48511 1.82649 5.48511H5.53942C6.00415 5.48511 6.41603 5.18586 6.55964 4.74387L7.707 1.21267Z"></path></svg></div><div class="w-auto p-0.5"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="theme-star-color" d="M7.707 1.21267C8.02812 0.224357 9.42632 0.224357 9.74744 1.21267L10.8948 4.74387C11.0384 5.18586 11.4503 5.48511 11.915 5.48511H15.6279C16.6671 5.48511 17.0992 6.81488 16.2585 7.42569L13.2547 9.60809C12.8787 9.88126 12.7214 10.3654 12.865 10.8074L14.0123 14.3386C14.3335 15.327 13.2023 16.1488 12.3616 15.538L9.35775 13.3556C8.98178 13.0824 8.47266 13.0824 8.09669 13.3556L5.09287 15.538C4.25216 16.1488 3.12099 15.327 3.44211 14.3386L4.58947 10.8074C4.73308 10.3654 4.57575 9.88126 4.19978 9.60809L1.19596 7.42569C0.355248 6.81488 0.787317 5.48511 1.82649 5.48511H5.53942C6.00415 5.48511 6.41603 5.18586 6.55964 4.74387L7.707 1.21267Z"></path></svg></div><div class="w-auto p-0.5"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="theme-star-color" d="M7.707 1.21267C8.02812 0.224357 9.42632 0.224357 9.74744 1.21267L10.8948 4.74387C11.0384 5.18586 11.4503 5.48511 11.915 5.48511H15.6279C16.6671 5.48511 17.0992 6.81488 16.2585 7.42569L13.2547 9.60809C12.8787 9.88126 12.7214 10.3654 12.865 10.8074L14.0123 14.3386C14.3335 15.327 13.2023 16.1488 12.3616 15.538L9.35775 13.3556C8.98178 13.0824 8.47266 13.0824 8.09669 13.3556L5.09287 15.538C4.25216 16.1488 3.12099 15.327 3.44211 14.3386L4.58947 10.8074C4.73308 10.3654 4.57575 9.88126 4.19978 9.60809L1.19596 7.42569C0.355248 6.81488 0.787317 5.48511 1.82649 5.48511H5.53942C6.00415 5.48511 6.41603 5.18586 6.55964 4.74387L7.707 1.21267Z"></path></svg></div><div class="w-auto p-0.5"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="theme-star-color" d="M7.707 1.21267C8.02812 0.224357 9.42632 0.224357 9.74744 1.21267L10.8948 4.74387C11.0384 5.18586 11.4503 5.48511 11.915 5.48511H15.6279C16.6671 5.48511 17.0992 6.81488 16.2585 7.42569L13.2547 9.60809C12.8787 9.88126 12.7214 10.3654 12.865 10.8074L14.0123 14.3386C14.3335 15.327 13.2023 16.1488 12.3616 15.538L9.35775 13.3556C8.98178 13.0824 8.47266 13.0824 8.09669 13.3556L5.09287 15.538C4.25216 16.1488 3.12099 15.327 3.44211 14.3386L4.58947 10.8074C4.73308 10.3654 4.57575 9.88126 4.19978 9.60809L1.19596 7.42569C0.355248 6.81488 0.787317 5.48511 1.82649 5.48511H5.53942C6.00415 5.48511 6.41603 5.18586 6.55964 4.74387L7.707 1.21267Z"></path></svg></div><div class="w-auto p-0.5"><svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="theme-star-color" d="M7.707 1.21267C8.02812 0.224357 9.42632 0.224357 9.74744 1.21267L10.8948 4.74387C11.0384 5.18586 11.4503 5.48511 11.915 5.48511H15.6279C16.6671 5.48511 17.0992 6.81488 16.2585 7.42569L13.2547 9.60809C12.8787 9.88126 12.7214 10.3654 12.865 10.8074L14.0123 14.3386C14.3335 15.327 13.2023 16.1488 12.3616 15.538L9.35775 13.3556C8.98178 13.0824 8.47266 13.0824 8.09669 13.3556L5.09287 15.538C4.25216 16.1488 3.12099 15.327 3.44211 14.3386L4.58947 10.8074C4.73308 10.3654 4.57575 9.88126 4.19978 9.60809L1.19596 7.42569C0.355248 6.81488 0.787317 5.48511 1.82649 5.48511H5.53942C6.00415 5.48511 6.41603 5.18586 6.55964 4.74387L7.707 1.21267Z"></path></svg></div></div></div><div class="w-auto p-1"><div class="flex flex-wrap -m-0.5"><div class="w-auto p-0.5"><p class="text-gray-900 font-bold">4.2/5</p></div><div class="w-auto p-0.5"><p class="text-gray-600 font-medium">(45k Reviews)</p></div></div></div></div></div></div></div><div class="w-full md:w-1/2 p-8"><div class="flex flex-wrap -m-3"><div class="w-full xl:w-1/2 p-3"><div class="px-8 py-7 h-full theme-bg-color-brighter bg-opacity-80 border border-gray-300 rounded-xl" style="backdrop-filter: blur(46px);"><span class="mb-2 inline-block font-medium leading-relaxed">Basic</span><h3 class="mb-3 text-6xl md:text-7xl font-bold font-heading tracking-px-n leading-tight">$4.99</h3><p class="mb-12 text-gray-600 font-medium leading-relaxed">Basic features with limited song library</p><button class="mb-9 py-4 px-9 w-full text-white font-semibold rounded-xl shadow-4xl transition ease-in-out duration-200 theme-bg-action-color theme-bg-action-hover-color theme-text-color" type="button">Get Now</button><ul></ul></div></div><div class="w-full xl:w-1/2 p-3"><div class="px-8 py-7 h-full theme-bg-color-brighter bg-opacity-80 border border-gray-300 rounded-xl" style="backdrop-filter: blur(46px);"><span class="mb-2 inline-block font-medium leading-relaxed">Premium</span><h3 class="mb-3 text-6xl md:text-7xl font-bold font-heading tracking-px-n leading-tight">$9.99</h3><p class="mb-12 text-gray-600 font-medium leading-relaxed">Access to unlimited songs and exclusive content</p><button class="mb-9 py-4 px-9 w-full text-white font-semibold rounded-xl shadow-4xl transition ease-in-out duration-200 theme-bg-action-color theme-bg-action-hover-color theme-text-color" type="button">Purchase Now</button><ul></ul></div></div></div></div></div></div></section></div></div><div id="3" style="position: relative;"><div id="kt_blockedit_toggle" data-kt-drawer-show="true" data-kt-drawer-target="#kt_drawer_example_permanent" class="" style="position: absolute; inset: 0px; z-index: 30;"></div><div class="row g-0 justify-content-between align-items-center z-index-1"><section class="py-20 theme-bg-color overflow-hidden"><div class="container px-4 mx-auto"><div class="flex flex-wrap items-center -m-8"><div class="w-full md:w-1/3 p-8"><div class="md:max-w-sm"><div class="flex flex-wrap items-center -m-3"><div class="w-auto p-3"><div class="flex items-center justify-center w-20 h-20 rounded-full"><img src="./Stunning_files/chat.svg" alt=""></div></div><div class="flex-1 p-3"><h3 class="text-xl font-semibold">Customized playlists based on your mood</h3></div></div></div></div><div class="w-full md:w-1/3 p-8"><div class="md:max-w-sm"><div class="flex flex-wrap items-center -m-3"><div class="w-auto p-3"><div class="flex items-center justify-center w-20 h-20 rounded-full"><img src="./Stunning_files/chat.svg" alt=""></div></div><div class="flex-1 p-3"><h3 class="text-xl font-semibold">Recommendations from top music critics</h3></div></div></div></div><div class="w-full md:w-1/3 p-8"><div class="md:max-w-sm"><div class="flex flex-wrap items-center -m-3"><div class="w-auto p-3"><div class="flex items-center justify-center w-20 h-20 rounded-full"><img src="./Stunning_files/chat.svg" alt=""></div></div><div class="flex-1 p-3"><h3 class="text-xl font-semibold">High-quality audio streaming</h3></div></div></div></div></div></div></section></div></div><div id="4" style="position: relative;"><div id="kt_blockedit_toggle" data-kt-drawer-show="true" data-kt-drawer-target="#kt_drawer_example_permanent" class="" style="position: absolute; inset: 0px; z-index: 30;"></div><div class="row g-0 justify-content-between align-items-center z-index-1"><section class="py-32 theme-bg-color overflow-hidden"><div class="container px-4 mx-auto"><div class="flex flex-wrap -m-8"><div class="w-full md:w-1/2 p-8"><div class="md:max-w-lg"><h2 class="mb-5 text-6xl md:text-7xl font-bold font-heading tracking-px-n leading-tight">Streaming music made simpler</h2><p class="text-gray-600 font-medium leading-relaxed">Discover the inner workings of TuneScapoe, your gateway to seamless music streaming bliss.</p></div></div><div class="w-full md:w-1/2 p-8"><div class="flex flex-wrap"><div class="w-full"><div class="flex flex-wrap -m-7"><div class="w-auto p-7"><div class="relative w-11 h-11 border border-blueGray-200 rounded-full"><div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"><svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4375 7.83333V19.75M11.4375 7.83333C11.4375 7.83333 11.4375 6.46495 11.4375 6C11.4375 4.98748 12.2583 4.16667 13.2708 4.16667C14.2834 4.16667 15.1042 4.98748 15.1042 6C15.1042 7.01252 14.2834 7.83333 13.2708 7.83333C12.7233 7.83333 11.4375 7.83333 11.4375 7.83333ZM11.4375 7.83333C11.4375 7.83333 11.4375 6.05767 11.4375 5.54167C11.4375 4.27601 10.4115 3.25 9.14583 3.25C7.88018 3.25 6.85417 4.27601 6.85417 5.54167C6.85417 6.80732 7.88018 7.83333 9.14583 7.83333C9.89548 7.83333 11.4375 7.83333 11.4375 7.83333ZM5.02083 11.5H17.8542M5.02083 11.5C4.00831 11.5 3.1875 10.6792 3.1875 9.66667C3.1875 8.65414 4.00831 7.83333 5.02083 7.83333H17.8542C18.8667 7.83333 19.6875 8.65414 19.6875 9.66667C19.6875 10.6792 18.8667 11.5 17.8542 11.5M5.02083 11.5L5.02083 17.9167C5.02083 18.9292 5.84164 19.75 6.85417 19.75H16.0208C17.0334 19.75 17.8542 18.9292 17.8542 17.9167V11.5" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><div class="w-px h-28 bg-blueGray-200 mx-auto"></div></div><div class="flex-1 p-7"><div class="md:max-w-sm pb-8"><h3 class="mb-4 text-xl font-semibold leading-normal">Connect and sign up for an account</h3><p class="text-gray-600 font-medium leading-relaxed">Create an account and connect to the TuneScapoe platform.</p></div></div></div></div><div class="w-full"><div class="flex flex-wrap -m-7"><div class="w-auto p-7"><div class="relative w-11 h-11 border border-blueGray-200 rounded-full"><div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"><svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4375 7.83333V19.75M11.4375 7.83333C11.4375 7.83333 11.4375 6.46495 11.4375 6C11.4375 4.98748 12.2583 4.16667 13.2708 4.16667C14.2834 4.16667 15.1042 4.98748 15.1042 6C15.1042 7.01252 14.2834 7.83333 13.2708 7.83333C12.7233 7.83333 11.4375 7.83333 11.4375 7.83333ZM11.4375 7.83333C11.4375 7.83333 11.4375 6.05767 11.4375 5.54167C11.4375 4.27601 10.4115 3.25 9.14583 3.25C7.88018 3.25 6.85417 4.27601 6.85417 5.54167C6.85417 6.80732 7.88018 7.83333 9.14583 7.83333C9.89548 7.83333 11.4375 7.83333 11.4375 7.83333ZM5.02083 11.5H17.8542M5.02083 11.5C4.00831 11.5 3.1875 10.6792 3.1875 9.66667C3.1875 8.65414 4.00831 7.83333 5.02083 7.83333H17.8542C18.8667 7.83333 19.6875 8.65414 19.6875 9.66667C19.6875 10.6792 18.8667 11.5 17.8542 11.5M5.02083 11.5L5.02083 17.9167C5.02083 18.9292 5.84164 19.75 6.85417 19.75H16.0208C17.0334 19.75 17.8542 18.9292 17.8542 17.9167V11.5" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><div class="w-px h-28 bg-blueGray-200 mx-auto"></div></div><div class="flex-1 p-7"><div class="md:max-w-sm pb-8"><h3 class="mb-4 text-xl font-semibold leading-normal">Search and discover music</h3><p class="text-gray-600 font-medium leading-relaxed">Explore and find your favorite songs and artists on TuneScapoe.</p></div></div></div></div><div class="w-full"><div class="flex flex-wrap -m-7"><div class="w-auto p-7"><div class="relative w-11 h-11 border border-blueGray-200 rounded-full"><div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"><svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4375 7.83333V19.75M11.4375 7.83333C11.4375 7.83333 11.4375 6.46495 11.4375 6C11.4375 4.98748 12.2583 4.16667 13.2708 4.16667C14.2834 4.16667 15.1042 4.98748 15.1042 6C15.1042 7.01252 14.2834 7.83333 13.2708 7.83333C12.7233 7.83333 11.4375 7.83333 11.4375 7.83333ZM11.4375 7.83333C11.4375 7.83333 11.4375 6.05767 11.4375 5.54167C11.4375 4.27601 10.4115 3.25 9.14583 3.25C7.88018 3.25 6.85417 4.27601 6.85417 5.54167C6.85417 6.80732 7.88018 7.83333 9.14583 7.83333C9.89548 7.83333 11.4375 7.83333 11.4375 7.83333ZM5.02083 11.5H17.8542M5.02083 11.5C4.00831 11.5 3.1875 10.6792 3.1875 9.66667C3.1875 8.65414 4.00831 7.83333 5.02083 7.83333H17.8542C18.8667 7.83333 19.6875 8.65414 19.6875 9.66667C19.6875 10.6792 18.8667 11.5 17.8542 11.5M5.02083 11.5L5.02083 17.9167C5.02083 18.9292 5.84164 19.75 6.85417 19.75H16.0208C17.0334 19.75 17.8542 18.9292 17.8542 17.9167V11.5" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><div class="w-px h-28 bg-blueGray-200 mx-auto"></div></div><div class="flex-1 p-7"><div class="md:max-w-sm pb-8"><h3 class="mb-4 text-xl font-semibold leading-normal">Create and share playlists</h3><p class="text-gray-600 font-medium leading-relaxed">Build personalized playlists and share them with friends and followers.</p></div></div></div></div><div class="w-full"><div class="flex flex-wrap -m-7"><div class="w-auto p-7"><div class="relative w-11 h-11 border border-blueGray-200 rounded-full"><div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"><svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4375 7.83333V19.75M11.4375 7.83333C11.4375 7.83333 11.4375 6.46495 11.4375 6C11.4375 4.98748 12.2583 4.16667 13.2708 4.16667C14.2834 4.16667 15.1042 4.98748 15.1042 6C15.1042 7.01252 14.2834 7.83333 13.2708 7.83333C12.7233 7.83333 11.4375 7.83333 11.4375 7.83333ZM11.4375 7.83333C11.4375 7.83333 11.4375 6.05767 11.4375 5.54167C11.4375 4.27601 10.4115 3.25 9.14583 3.25C7.88018 3.25 6.85417 4.27601 6.85417 5.54167C6.85417 6.80732 7.88018 7.83333 9.14583 7.83333C9.89548 7.83333 11.4375 7.83333 11.4375 7.83333ZM5.02083 11.5H17.8542M5.02083 11.5C4.00831 11.5 3.1875 10.6792 3.1875 9.66667C3.1875 8.65414 4.00831 7.83333 5.02083 7.83333H17.8542C18.8667 7.83333 19.6875 8.65414 19.6875 9.66667C19.6875 10.6792 18.8667 11.5 17.8542 11.5M5.02083 11.5L5.02083 17.9167C5.02083 18.9292 5.84164 19.75 6.85417 19.75H16.0208C17.0334 19.75 17.8542 18.9292 17.8542 17.9167V11.5" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><div class="w-px h-28 bg-blueGray-200 mx-auto"></div></div><div class="flex-1 p-7"><div class="md:max-w-sm pb-8"><h3 class="mb-4 text-xl font-semibold leading-normal">Stream music online or offline</h3><p class="text-gray-600 font-medium leading-relaxed">Enjoy uninterrupted music streaming both online and offline.</p></div></div></div></div></div></div></div></div></section></div></div><div id="5" style="position: relative;"><div id="kt_blockedit_toggle" data-kt-drawer-show="true" data-kt-drawer-target="#kt_drawer_example_permanent" class="" style="position: absolute; inset: 0px; z-index: 30;"></div><div class="row g-0 justify-content-between align-items-center z-index-1"><section class="relative pt-24 pb-28 theme-bg-color-darker overflow-hidden"><img class="absolute bottom-0 left-1/2 transform -translate-x-1/2" src="./Stunning_files/gradient.svg" alt=""><div class="relative z-10 container px-4 mx-auto"><div class="md:max-w-4xl mx-auto"><p class="mb-7 text-sm theme-text-action-2-color text-center font-semibold uppercase tracking-px">Need help with TuneScapoe?</p><h2 class="mb-16 text-6xl md:text-8xl xl:text-10xl text-center font-bold font-heading tracking-px-n leading-none">Frequently Asked Questions: TuneScapoe</h2><div class="mb-11 flex flex-wrap -m-1"><div class="w-full p-1"><a href="https://studio.stunning.so/editor/tunescapoe001#"><div class="py-7 px-8 theme-bg-color-brighter bg-opacity-60 border-2 border-opacity-10 theme-text-action-2-color rounded-2xl shadow-10xl"><div class="flex flex-wrap justify-between -m-2"><div class="flex-1 p-2"><h3 class="mb-4 text-lg font-semibold leading-normal">What is TuneScapoe?</h3><p class="text-gray-600 font-medium">TuneScapoe is a music streaming service that allows you to discover and listen to a wide range of songs and playlists from various genres.</p></div><div class="w-auto p-2"><svg class="relative top-1 theme-action-stroke-color" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.16732 12.5L10.0007 6.66667L15.834 12.5" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div></div></a></div><div class="w-full p-1"><a href="https://studio.stunning.so/editor/tunescapoe001#"><div class="py-7 px-8 theme-bg-color-brighter bg-opacity-60 border-2 border-opacity-10 theme-text-action-2-color rounded-2xl shadow-10xl"><div class="flex flex-wrap justify-between -m-2"><div class="flex-1 p-2"><h3 class="mb-4 text-lg font-semibold leading-normal">Can I download songs with TuneScapoe?</h3><p class="text-gray-600 font-medium">No, TuneScapoe does not currently support downloading songs for offline listening. However, you can stream unlimited music with an active internet connection.</p></div><div class="w-auto p-2"><svg class="relative top-1 theme-action-stroke-color" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.16732 12.5L10.0007 6.66667L15.834 12.5" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div></div></a></div><div class="w-full p-1"><a href="https://studio.stunning.so/editor/tunescapoe001#"><div class="py-7 px-8 theme-bg-color-brighter bg-opacity-60 border-2 border-opacity-10 theme-text-action-2-color rounded-2xl shadow-10xl"><div class="flex flex-wrap justify-between -m-2"><div class="flex-1 p-2"><h3 class="mb-4 text-lg font-semibold leading-normal">Is TuneScapoe available on mobile devices?</h3><p class="text-gray-600 font-medium">Yes, TuneScapoe is available as a mobile app for both iOS and Android devices. You can download it from the respective app stores and enjoy music on the go.</p></div><div class="w-auto p-2"><svg class="relative top-1 theme-action-stroke-color" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.16732 12.5L10.0007 6.66667L15.834 12.5" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div></div></a></div><div class="w-full p-1"><a href="https://studio.stunning.so/editor/tunescapoe001#"><div class="py-7 px-8 theme-bg-color-brighter bg-opacity-60 border-2 border-opacity-10 theme-text-action-2-color rounded-2xl shadow-10xl"><div class="flex flex-wrap justify-between -m-2"><div class="flex-1 p-2"><h3 class="mb-4 text-lg font-semibold leading-normal">Can I create playlists on TuneScapoe?</h3><p class="text-gray-600 font-medium">Absolutely! With TuneScapoe, you can easily create personalized playlists by adding your favorite songs. This allows you to curate your own listening experience and enjoy music tailored to your tastes.</p></div><div class="w-auto p-2"><svg class="relative top-1 theme-action-stroke-color" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.16732 12.5L10.0007 6.66667L15.834 12.5" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div></div></a></div></div><p class="text-gray-600 text-center font-medium"><span>Still have any questions? </span><a class="font-semibold theme-text-action-color theme-text-action-hover-color" href="https://studio.stunning.so/editor/tunescapoe001#">Contact us</a></p></div></div></section></div></div><div id="6" style="position: relative;"><div id="kt_blockedit_toggle" data-kt-drawer-show="true" data-kt-drawer-target="#kt_drawer_example_permanent" class="" style="position: absolute; inset: 0px; z-index: 30;"></div><div class="row g-0 justify-content-between align-items-center z-index-1"><section class="pt-24 pb-28 theme-bg-color overflow-hidden"><div class="container px-4 mx-auto"><div class="text-center max-w-lg mx-auto"><h2 class="mb-5 text-6xl md:text-7xl font-bold font-heading text-center tracking-px-n leading-tight">Start Streaming Your Favorite Music Now!</h2><p class="mb-7 text-lg text-gray-600 font-medium">Discover and stream the latest music with TuneScapoe - your ultimate audio entertainment destination.</p><div class="mb-11 md:inline-block"><a href="https://studio.stunning.so/editor/tunescapoe001"><button class="py-4 px-6 w-full text-white font-semibold rounded-xl theme-bg-action-color theme-bg-action-hover-color theme-text-color transition-all ease-in-out duration-200" type="button">Start Jamming Now!</button></a></div><div class="flex flex-wrap items-center justify-center -m-1"><div class="w-auto p-1"><div class="flex flex-wrap"><div class="w-auto"><img width="30" alt="" src="./Stunning_files/pexels-photo-3794188.jpeg" style="border-radius: 50%;"></div><div class="w-auto -ml-3"><img width="30" alt="" src="./Stunning_files/pexels-photo-3794188.jpeg" style="border-radius: 50%;"></div><div class="w-auto -ml-3"><img width="30" alt="" src="./Stunning_files/pexels-photo-3794246.jpeg" style="border-radius: 50%;"></div></div></div><div class="w-auto p-1"><p class="text-gray-600 font-medium"><span>Level up your listening experience with TuneScape</span></p></div></div></div></div></section></div></div><div id="7" style="position: relative;"><div id="kt_blockedit_toggle" data-kt-drawer-show="true" data-kt-drawer-target="#kt_drawer_example_permanent" class="" style="position: absolute; inset: 0px; z-index: 30;"></div><div class="row g-0 justify-content-between align-items-center z-index-1"><section class="relative pt-24 pb-28 theme-bg-color-darker overflow-hidden"><img class="absolute right-0 top-0" src="./Stunning_files/gradient2.svg" alt=""><div class="relative z-10 container px-4 mx-auto"><div class="flex flex-wrap justify-between -m-8"><div class="w-full sm:w-1/2 lg:w-2/12 p-8"><a class="inline-block" href="https://studio.stunning.so/editor/tunescapoe001#"><img src="./Stunning_files/static-logo.png" alt=""></a></div><div class="w-full sm:w-1/2 lg:w-2/12 p-8"><h3 class="mb-6 font-semibold leading-normal">Company"</h3><ul><li class="mb-3.5"><a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="https://studio.stunning.so/editor/tunescapoe001">TuneScapoe</a></li></ul><ul><li class="mb-3.5"><a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="https://studio.stunning.so/editor/tunescapoe001">TuneScapoe</a></li></ul><ul><li class="mb-3.5"><a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="https://studio.stunning.so/editor/tunescapoe001">TuneScapoe</a></li></ul><ul><li class="mb-3.5"><a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="https://studio.stunning.so/editor/tunescapoe001">TuneScapoe</a></li></ul></div><div class="w-full sm:w-1/2 lg:w-2/12 p-8"><h3 class="mb-6 font-semibold leading-normal">Legal</h3><ul><li class="mb-3.5"><a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="https://studio.stunning.so/editor/tunescapoe001">Terms and Conditions</a></li></ul><ul><li class="mb-3.5"><a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="https://studio.stunning.so/editor/tunescapoe001">Privacy Policy</a></li></ul><ul><li class="mb-3.5"><a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="https://studio.stunning.so/editor/tunescapoe001">Cookie Policy</a></li></ul><ul><li class="mb-3.5"><a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="https://studio.stunning.so/editor/tunescapoe001">Copyright Notice</a></li></ul></div><div class="w-full sm:w-1/2 lg:w-2/12 p-8"><h3 class="mb-6 font-semibold leading-normal">Resources</h3><ul><li class="mb-3.5"><a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="https://studio.stunning.so/editor/tunescapoe001">FAQs</a></li></ul><ul><li class="mb-3.5"><a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="https://studio.stunning.so/editor/tunescapoe001">Support</a></li></ul><ul><li class="mb-3.5"><a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="https://studio.stunning.so/editor/tunescapoe001">Contact Us</a></li></ul><ul><li class="mb-3.5"><a class="text-gray-600 hover:text-gray-700 font-medium leading-relaxed" href="https://studio.stunning.so/editor/tunescapoe001">Help Center</a></li></ul></div></div></div></section></div></div></div></div></div></div></div></div></div><div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true" style="border-radius: 5px;"><i class="bi bi-arrow-up fa-lg text-white"></i></div><div data-kt-drawer-activate="true" data-kt-drawer-width="{default:&#39;300px&#39;, &#39;lg&#39;: &#39;440px&#39;}" data-kt-drawer-toggle="#kt_explore_toggle" data-kt-drawer-close="#kt_explore_close" id="kt_sidebar" class="explore rounded mt-4 mb-4 bg-white drawer drawer-end" data-kt-drawer="true" data-kt-drawer-name="sidebar" data-kt-drawer-overlay="true" data-kt-drawer-direction="end" style="width: 440px !important;"><div class="d-flex flex-column sidebar-body w-100"><div id="kt_sidebar_content" style="overflow: hidden scroll; width: 100%;"><div class=" pe-lg-5" data-kt-scroll="true" data-kt-scroll-height="auto" data-kt-scroll-offset="10px" data-kt-scroll-wrappers="#kt_sidebar_content" style="height: 733px;"><div id="kt_sidebar_shop_filter_form"><div class="card shadow-none w-100 p-0"><div class="card-header" id="kt_explore_header"><h5 class="card-title fw-bold text-dark-600">Browse Blocks</h5><div class="card-toolbar"><button type="button" class="btn btn-sm btn-icon explore-btn-dismiss me-n5" id="kt_explore_close"><span class="svg-icon svg-icon-2"><svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="mh-50px"><g id="Group" transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000"><rect fill="#000000" id="Rectangle-185" x="0" y="7" width="16" height="2" rx="1"></rect><rect fill="#000000" id="Rectangle-185-Copy" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000) " x="0" y="7" width="16" height="2" rx="1"></rect></g></svg></span></button></div></div><div class="card-body" id="kt_explore_body"><div class="accordion accordion-icon-toggle" id="kt_accordion_1"></div></div></div></div></div></div></div></div></div><div id="root-modals"></div><script>!function(e){function c(c){for(var f,a,r=c[0],n=c[1],o=c[2],u=0,l=[];u<r.length;u++)a=r[u],Object.prototype.hasOwnProperty.call(b,a)&&b[a]&&l.push(b[a][0]),b[a]=0;for(f in n)Object.prototype.hasOwnProperty.call(n,f)&&(e[f]=n[f]);for(i&&i(c);l.length;)l.shift()();return t.push.apply(t,o||[]),d()}function d(){for(var e,c=0;c<t.length;c++){for(var d=t[c],f=!0,a=1;a<d.length;a++){var n=d[a];0!==b[n]&&(f=!1)}f&&(t.splice(c--,1),e=r(r.s=d[0]))}return e}var f={},a={243:0},b={243:0},t=[];function r(c){if(f[c])return f[c].exports;var d=f[c]={i:c,l:!1,exports:{}};return e[c].call(d.exports,d,d.exports,r),d.l=!0,d.exports}r.e=function(e){var c=[];a[e]?c.push(a[e]):0!==a[e]&&{0:1,4:1,5:1,6:1,7:1,8:1,9:1,10:1,11:1,12:1,13:1,14:1,15:1,16:1,17:1,18:1,19:1,20:1,21:1,22:1,23:1,24:1,25:1,26:1,27:1,28:1,29:1,30:1,31:1,32:1,33:1,34:1,35:1,36:1,37:1,38:1,39:1,40:1,41:1,42:1,43:1,44:1,45:1,46:1,47:1,48:1,49:1,50:1,51:1,52:1,53:1,54:1,55:1,56:1,57:1,58:1,59:1,60:1,61:1,62:1,63:1,64:1,65:1,66:1,67:1,68:1,69:1,70:1,71:1,72:1,73:1,74:1,75:1,76:1,77:1,78:1,79:1,80:1,81:1,82:1,83:1,84:1,85:1,86:1,87:1,88:1,89:1,90:1,91:1,92:1,93:1,94:1,95:1,96:1,97:1,98:1,99:1,100:1,101:1,102:1,103:1,104:1,105:1,106:1,107:1,108:1,109:1,110:1,111:1,112:1,245:1,246:1,247:1,248:1,249:1,250:1,251:1,252:1,253:1,254:1,255:1,256:1,257:1,258:1,259:1,260:1,261:1,262:1,263:1,264:1,265:1,266:1,267:1,268:1,269:1,270:1,271:1,272:1,273:1,274:1,275:1,276:1,277:1,278:1,279:1,280:1,281:1,282:1,283:1,284:1,285:1,286:1,287:1,288:1,289:1,290:1,291:1,292:1,293:1,294:1,295:1,296:1,297:1,298:1,299:1,300:1,301:1,302:1,303:1,304:1,305:1,306:1,307:1,308:1,309:1,310:1,311:1,312:1,313:1,314:1,315:1,316:1,317:1,318:1,319:1,320:1,321:1,322:1,323:1,324:1,325:1,326:1,327:1,328:1,329:1,330:1,331:1,332:1,333:1,334:1,335:1,336:1,337:1,338:1,339:1,340:1,341:1,342:1,343:1,344:1,345:1,346:1,347:1,348:1}[e]&&c.push(a[e]=new Promise((function(c,d){for(var f="static/css/"+({}[e]||e)+"."+{0:"1df55681",1:"31d6cfe0",2:"31d6cfe0",3:"31d6cfe0",4:"f1cc1e5c",5:"f989ab13",6:"7746e321",7:"569a743c",8:"218af35f",9:"9bff6097",10:"56cea22c",11:"c58d50ae",12:"55ed3be8",13:"202467b3",14:"285ccc14",15:"41312ac2",16:"d4070fd5",17:"e4d7bcf5",18:"2284fe7f",19:"2c598d3e",20:"1c8bde28",21:"a74d80d4",22:"6e51cc62",23:"feb3d5f0",24:"eb026e1e",25:"312fbf6e",26:"2b61a032",27:"d22c96bd",28:"9731cfff",29:"eaa31e97",30:"fbbc4f09",31:"a6ff4b95",32:"593d60b9",33:"dd8b82d5",34:"47232b67",35:"a4f3e7c9",36:"b220ee66",37:"10cb9a2f",38:"11379e6e",39:"9220f990",40:"e733b9a6",41:"d8d015dd",42:"fa10def3",43:"a4e4afaf",44:"d057dbbc",45:"cb043317",46:"40866894",47:"d37fedb6",48:"c278bc69",49:"1de961ea",50:"5a9664ce",51:"1abc3483",52:"f6c7082a",53:"080bc97e",54:"83c0aa61",55:"26d5d1c7",56:"cc8a867f",57:"cb9e79f9",58:"65b37f25",59:"09350dae",60:"cd3f8836",61:"432056d6",62:"ff5f3531",63:"cc2bf7a9",64:"65d25035",65:"9a780c26",66:"2b120257",67:"57060964",68:"31d60739",69:"31d60739",70:"31d60739",71:"6cc3f836",72:"54de570c",73:"a605fb2b",74:"f5d969fc",75:"bb94abb6",76:"5b2a8c42",77:"ca4463ee",78:"3307a2c7",79:"082c5a71",80:"195ab5f1",81:"a2dc1b2d",82:"4938e5b1",83:"68414555",84:"5a05adea",85:"9db9ba19",86:"789b732e",87:"3ca0a7ba",88:"2bce8172",89:"f27334c8",90:"e2c2181b",91:"74aabe6a",92:"04700fa3",93:"fd12d84b",94:"05b38ecb",95:"06885a40",96:"e8f81a85",97:"31d60739",98:"31d60739",99:"31d60739",100:"31d60739",101:"31d60739",102:"31d60739",103:"31d60739",104:"31d60739",105:"31d60739",106:"31d60739",107:"6bd61968",108:"368924b1",109:"03da1a4a",110:"aa897ca6",111:"05ac40f4",112:"c464e539",113:"31d6cfe0",114:"31d6cfe0",115:"31d6cfe0",116:"31d6cfe0",117:"31d6cfe0",118:"31d6cfe0",119:"31d6cfe0",120:"31d6cfe0",121:"31d6cfe0",122:"31d6cfe0",123:"31d6cfe0",124:"31d6cfe0",125:"31d6cfe0",126:"31d6cfe0",127:"31d6cfe0",128:"31d6cfe0",129:"31d6cfe0",130:"31d6cfe0",131:"31d6cfe0",132:"31d6cfe0",133:"31d6cfe0",134:"31d6cfe0",135:"31d6cfe0",136:"31d6cfe0",137:"31d6cfe0",138:"31d6cfe0",139:"31d6cfe0",140:"31d6cfe0",141:"31d6cfe0",142:"31d6cfe0",143:"31d6cfe0",144:"31d6cfe0",145:"31d6cfe0",146:"31d6cfe0",147:"31d6cfe0",148:"31d6cfe0",149:"31d6cfe0",150:"31d6cfe0",151:"31d6cfe0",152:"31d6cfe0",153:"31d6cfe0",154:"31d6cfe0",155:"31d6cfe0",156:"31d6cfe0",157:"31d6cfe0",158:"31d6cfe0",159:"31d6cfe0",160:"31d6cfe0",161:"31d6cfe0",162:"31d6cfe0",163:"31d6cfe0",164:"31d6cfe0",165:"31d6cfe0",166:"31d6cfe0",167:"31d6cfe0",168:"31d6cfe0",169:"31d6cfe0",170:"31d6cfe0",171:"31d6cfe0",172:"31d6cfe0",173:"31d6cfe0",174:"31d6cfe0",175:"31d6cfe0",176:"31d6cfe0",177:"31d6cfe0",178:"31d6cfe0",179:"31d6cfe0",180:"31d6cfe0",181:"31d6cfe0",182:"31d6cfe0",183:"31d6cfe0",184:"31d6cfe0",185:"31d6cfe0",186:"31d6cfe0",187:"31d6cfe0",188:"31d6cfe0",189:"31d6cfe0",190:"31d6cfe0",191:"31d6cfe0",192:"31d6cfe0",193:"31d6cfe0",194:"31d6cfe0",195:"31d6cfe0",196:"31d6cfe0",197:"31d6cfe0",198:"31d6cfe0",199:"31d6cfe0",200:"31d6cfe0",201:"31d6cfe0",202:"31d6cfe0",203:"31d6cfe0",204:"31d6cfe0",205:"31d6cfe0",206:"31d6cfe0",207:"31d6cfe0",208:"31d6cfe0",209:"31d6cfe0",210:"31d6cfe0",211:"31d6cfe0",212:"31d6cfe0",213:"31d6cfe0",214:"31d6cfe0",215:"31d6cfe0",216:"31d6cfe0",217:"31d6cfe0",218:"31d6cfe0",219:"31d6cfe0",220:"31d6cfe0",221:"31d6cfe0",222:"31d6cfe0",223:"31d6cfe0",224:"31d6cfe0",225:"31d6cfe0",226:"31d6cfe0",227:"31d6cfe0",228:"31d6cfe0",229:"31d6cfe0",230:"31d6cfe0",231:"31d6cfe0",232:"31d6cfe0",233:"31d6cfe0",234:"31d6cfe0",235:"31d6cfe0",236:"31d6cfe0",237:"31d6cfe0",238:"31d6cfe0",239:"31d6cfe0",240:"31d6cfe0",241:"31d6cfe0",245:"cb043317",246:"9731cfff",247:"40866894",248:"eaa31e97",249:"d37fedb6",250:"1c8bde28",251:"c278bc69",252:"1de961ea",253:"5a9664ce",254:"fbbc4f09",255:"a6ff4b95",256:"593d60b9",257:"1abc3483",258:"1800217e",259:"ca4463ee",260:"a74d80d4",261:"f6c7082a",262:"080bc97e",263:"33d262a9",264:"ec6b8ada",265:"83c0aa61",266:"47232b67",267:"eeed7cdc",268:"3307a2c7",269:"c3449685",270:"082c5a71",271:"6e51cc62",272:"26d5d1c7",273:"a4f3e7c9",274:"c3f51fb6",275:"9abe7aa5",276:"cc8a867f",277:"cb9e79f9",278:"b220ee66",279:"09350dae",280:"195ab5f1",281:"feb3d5f0",282:"cd3f8836",283:"a2dc1b2d",284:"10cb9a2f",285:"11379e6e",286:"9220f990",287:"432056d6",288:"e733b9a6",289:"ff5f3531",290:"d8d015dd",291:"cc2bf7a9",292:"4938e5b1",293:"eb026e1e",294:"65d25035",295:"a0c3ac2f",296:"fa10def3",297:"31d60739",298:"6cc3f836",299:"6bd61968",300:"d057dbbc",301:"d22c96bd",302:"54de570c",303:"5e8302af",304:"89994cfd",305:"fa8804bf",306:"368924b1",307:"5f34b4b5",308:"a605fb2b",309:"2c598d3e",310:"03da1a4a",311:"f5d969fc",312:"bb94abb6",313:"5b2a8c42",314:"aa897ca6",315:"dff59085",316:"8954cab9",317:"65b37f25",318:"68414555",319:"32811ee1",320:"5a05adea",321:"9db9ba19",322:"789b732e",323:"78bddc22",324:"a0d73a41",325:"bc40e41e",326:"9a780c26",327:"23c05407",328:"3ca0a7ba",329:"2bce8172",330:"f27334c8",331:"e2c2181b",332:"2b120257",333:"74aabe6a",334:"05ac40f4",335:"04700fa3",336:"c464e539",337:"57060964",338:"fd12d84b",339:"05b38ecb",340:"06885a40",341:"77941746",342:"823b7a09",343:"1e3c52a7",344:"e8f81a85",345:"aaabc4d7",346:"673b807d",347:"050a730f",348:"178079e0",349:"31d6cfe0",350:"31d6cfe0",351:"31d6cfe0",352:"31d6cfe0",353:"31d6cfe0",354:"31d6cfe0",355:"31d6cfe0",356:"31d6cfe0",357:"31d6cfe0",358:"31d6cfe0",359:"31d6cfe0",360:"31d6cfe0",361:"31d6cfe0",362:"31d6cfe0",363:"31d6cfe0",364:"31d6cfe0",365:"31d6cfe0",366:"31d6cfe0",367:"31d6cfe0",368:"31d6cfe0",369:"31d6cfe0",370:"31d6cfe0",371:"31d6cfe0",372:"31d6cfe0",373:"31d6cfe0",374:"31d6cfe0",375:"31d6cfe0",376:"31d6cfe0",377:"31d6cfe0",378:"31d6cfe0",379:"31d6cfe0",380:"31d6cfe0",381:"31d6cfe0",382:"31d6cfe0",383:"31d6cfe0",384:"31d6cfe0",385:"31d6cfe0"}[e]+".chunk.css",b=r.p+f,t=document.getElementsByTagName("link"),n=0;n<t.length;n++){var o=(i=t[n]).getAttribute("data-href")||i.getAttribute("href");if("stylesheet"===i.rel&&(o===f||o===b))return c()}var u=document.getElementsByTagName("style");for(n=0;n<u.length;n++){var i;if((o=(i=u[n]).getAttribute("data-href"))===f||o===b)return c()}var l=document.createElement("link");l.rel="stylesheet",l.type="text/css",l.onload=c,l.onerror=function(c){var f=c&&c.target&&c.target.src||b,t=new Error("Loading CSS chunk "+e+" failed.\n("+f+")");t.code="CSS_CHUNK_LOAD_FAILED",t.request=f,delete a[e],l.parentNode.removeChild(l),d(t)},l.href=b,document.getElementsByTagName("head")[0].appendChild(l)})).then((function(){a[e]=0})));var d=b[e];if(0!==d)if(d)c.push(d[2]);else{var f=new Promise((function(c,f){d=b[e]=[c,f]}));c.push(d[2]=f);var t,n=document.createElement("script");n.charset="utf-8",n.timeout=120,r.nc&&n.setAttribute("nonce",r.nc),n.src=function(e){return r.p+"static/js/"+({}[e]||e)+"."+{0:"76de869b",1:"6ff8bca9",2:"a66a91ac",3:"fc4fbb52",4:"76fc2e23",5:"bc299f4c",6:"e0f5aad9",7:"ad18d364",8:"178a96fe",9:"1b82703c",10:"563ea8ba",11:"51f5f329",12:"8670b342",13:"9186cf11",14:"26621cfd",15:"13dbaad6",16:"49799180",17:"797d8295",18:"2d65a644",19:"a8d2b5fa",20:"61ecb474",21:"82198c67",22:"76494360",23:"69f7b1fb",24:"3a30ae98",25:"98bcfda4",26:"b84414a3",27:"4fa58312",28:"4ae32e80",29:"5563f979",30:"269bd596",31:"c7da8182",32:"9fbf82a9",33:"c15eafa5",34:"c8fb1e12",35:"7bf371e8",36:"9dc8bd44",37:"25ae928a",38:"ff513d59",39:"4e098015",40:"e0fae65b",41:"1baecb74",42:"86ad2c2d",43:"94bc1ac4",44:"8881683e",45:"e3411b91",46:"125dc0e2",47:"0a6c4144",48:"4d7b869c",49:"22055da5",50:"6325cb3f",51:"cc4daeac",52:"7fee1870",53:"4034ce8a",54:"91ecea6d",55:"e77575d7",56:"213e4d14",57:"09d085f8",58:"c6506c70",59:"14c0a20e",60:"7abfd661",61:"daee7cbb",62:"e532e6e6",63:"b5b247c2",64:"6a4f6fef",65:"37822320",66:"34dd95c4",67:"b81aede1",68:"cefd15a1",69:"7ae98bb7",70:"83e31554",71:"6123e993",72:"48acbb73",73:"6254202b",74:"70d755a3",75:"d651db26",76:"34671bf4",77:"3a65b1a3",78:"e29a0b2e",79:"5a48b7d6",80:"d4458cc7",81:"1c12771d",82:"e5cef243",83:"ed1dce3d",84:"9f1e043d",85:"96d591d3",86:"6fd092e4",87:"6a1b523c",88:"91d47b29",89:"259e16fc",90:"5611aee7",91:"af771a51",92:"a1b2e8a1",93:"a1c28ce9",94:"4e8fc996",95:"3076359c",96:"28bf25bc",97:"c7909182",98:"0861afec",99:"3049a51e",100:"c7ddb581",101:"261b41f7",102:"438d8d8e",103:"e2f0781d",104:"67a3b07d",105:"9c0b675d",106:"6cca46ce",107:"5c2e59b6",108:"1138b0d8",109:"bcbc1232",110:"3b04e572",111:"ebd85259",112:"17930ffd",113:"24a3624a",114:"3853ddd1",115:"3158641b",116:"e7f46838",117:"cc14dd07",118:"c08ba270",119:"e7b2698c",120:"3a024b43",121:"6178b69a",122:"98e8515f",123:"c7f7618e",124:"1dd74c19",125:"ec355295",126:"e9f8c661",127:"30848204",128:"eaf00306",129:"719be80a",130:"61f886fe",131:"78354c66",132:"9cf60155",133:"b71941e4",134:"d2a2416c",135:"1200aa5f",136:"7491def3",137:"37b5b1dd",138:"1a7f4b56",139:"fa9f3c78",140:"f6a88a3d",141:"d50059d0",142:"f959864b",143:"6d2e1148",144:"9e6a3d15",145:"e84c7aa5",146:"e3848f52",147:"7aa30774",148:"2e8a4fe6",149:"4934e18d",150:"bd5e6e73",151:"6c397bc8",152:"69788b03",153:"32a7c187",154:"11fec644",155:"8ae8aa58",156:"7b6a68db",157:"74a008e5",158:"1b8da1b7",159:"fb324f5d",160:"1f665ba5",161:"74625154",162:"2994400b",163:"bcc31464",164:"4ec52cf8",165:"de546d4e",166:"3389c0ca",167:"66881037",168:"86a7570a",169:"d3f35c71",170:"aafa8752",171:"fbc43356",172:"d22d0598",173:"3a320d83",174:"4bcec403",175:"07e43d77",176:"9a1504ca",177:"bf7a9764",178:"14fc9408",179:"de93045c",180:"dd30849b",181:"52112f3e",182:"c049d4e2",183:"f42b2985",184:"9897c3d2",185:"ee5a94ac",186:"055470dc",187:"f659b279",188:"6e0212b4",189:"9f58b9a9",190:"1e641710",191:"08ae9990",192:"5de9410c",193:"40c4b660",194:"f1b0b9ae",195:"b73032c9",196:"8295ba07",197:"c6cfdc6c",198:"e91f62b9",199:"b1a01e6a",200:"ab266359",201:"0e8d8401",202:"0c9ce050",203:"c6e95a7b",204:"f149612a",205:"3c77df56",206:"f0733932",207:"1d7014c6",208:"90973067",209:"ae372882",210:"268a68a8",211:"da8f0ac9",212:"23da8f07",213:"21f852ee",214:"019595ea",215:"7d4031cd",216:"f9925cf4",217:"f529afc9",218:"4edc153f",219:"82f099c6",220:"d977b6ba",221:"a1a53258",222:"cddc3901",223:"e6876fc5",224:"32cda4c0",225:"36b885af",226:"503b5100",227:"adcad224",228:"017ec149",229:"562d855a",230:"05efb5d2",231:"36c76608",232:"d41334c1",233:"07c8f47b",234:"637c185d",235:"ed208160",236:"2b1af61c",237:"b27bb162",238:"35c64995",239:"eed9bf2c",240:"f356c50f",241:"35ac240e",245:"eade2828",246:"d3c910cf",247:"50ddb1fa",248:"da92a942",249:"5ee4879e",250:"168125f9",251:"b1986f74",252:"cdb4cd8c",253:"fd99d55c",254:"6cc204eb",255:"2a452a1b",256:"fa54f707",257:"ed5a3714",258:"ea627802",259:"16a8fc14",260:"586bbdb3",261:"a66e5fa4",262:"417c892e",263:"a2cf3a1a",264:"9e4123a8",265:"0d3506cd",266:"c5dabf57",267:"fc8cd266",268:"a37d678f",269:"78acf884",270:"6a2ffd8a",271:"cafa310f",272:"cee01028",273:"d5b08da6",274:"b91587f7",275:"ac6751be",276:"516d321a",277:"5d4d22f4",278:"b743b120",279:"88e271b1",280:"6d12f72d",281:"99e31f30",282:"6ecdca0f",283:"7df3e167",284:"b4388c4d",285:"dc8e82aa",286:"5a964d37",287:"04bf70db",288:"9214303f",289:"ccd87a27",290:"b0de6c55",291:"b844abd5",292:"e8ad0979",293:"52ac7530",294:"a24e261a",295:"df61f9db",296:"d220f09d",297:"ba604e3d",298:"6a662569",299:"689e196e",300:"ff301aa7",301:"9753da7b",302:"84d661db",303:"76e7eb01",304:"0d748181",305:"96f72a40",306:"60cfda6a",307:"83be3a06",308:"578474b2",309:"ce8223c9",310:"85ffe902",311:"0e72c4b3",312:"59584d06",313:"82f5aac6",314:"dd991931",315:"654e173e",316:"320f0e74",317:"e057e220",318:"4453176c",319:"3558314e",320:"a153524e",321:"75be7828",322:"bae73d1e",323:"2ad96991",324:"54bf4d57",325:"429d174a",326:"6f131d98",327:"3d9b87af",328:"12ae74e0",329:"5fa97b38",330:"1e981905",331:"1bd62c4d",332:"c046dd01",333:"75c0c532",334:"6e78d9e9",335:"70759967",336:"570ff8de",337:"85306743",338:"b69710c8",339:"cefa53ff",340:"a376329b",341:"53fd789f",342:"efd098de",343:"af86f09d",344:"165ee9dc",345:"bbc7e6fd",346:"f9330869",347:"bc2f51eb",348:"a1d4f588",349:"abfe28b4",350:"75d2ee58",351:"8640b1cf",352:"05f28c48",353:"5bf2aafd",354:"642d9710",355:"9397eafc",356:"8763f6a1",357:"ee7e2543",358:"abcf1d8b",359:"0cd56982",360:"b188ac46",361:"f253af8f",362:"a3d5afd2",363:"896fa9a3",364:"0e426478",365:"ce2076a0",366:"b95b79a0",367:"c739a997",368:"845f37be",369:"61c2c9cf",370:"7b9f6bea",371:"6c9cebaf",372:"6d4387cb",373:"3b855b99",374:"e796f9dd",375:"a39db6d4",376:"a37b6355",377:"ae2589dd",378:"8e136a05",379:"a645db80",380:"f48d40f3",381:"25aa2418",382:"8c7985b6",383:"3df6833f",384:"d6ee0e00",385:"3f4d602e"}[e]+".chunk.js"}(e);var o=new Error;t=function(c){n.onerror=n.onload=null,clearTimeout(u);var d=b[e];if(0!==d){if(d){var f=c&&("load"===c.type?"missing":c.type),a=c&&c.target&&c.target.src;o.message="Loading chunk "+e+" failed.\n("+f+": "+a+")",o.name="ChunkLoadError",o.type=f,o.request=a,d[1](o)}b[e]=void 0}};var u=setTimeout((function(){t({type:"timeout",target:n})}),12e4);n.onerror=n.onload=t,document.head.appendChild(n)}return Promise.all(c)},r.m=e,r.c=f,r.d=function(e,c,d){r.o(e,c)||Object.defineProperty(e,c,{enumerable:!0,get:d})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,c){if(1&c&&(e=r(e)),8&c)return e;if(4&c&&"object"==typeof e&&e&&e.__esModule)return e;var d=Object.create(null);if(r.r(d),Object.defineProperty(d,"default",{enumerable:!0,value:e}),2&c&&"string"!=typeof e)for(var f in e)r.d(d,f,function(c){return e[c]}.bind(null,f));return d},r.n=function(e){var c=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(c,"a",c),c},r.o=function(e,c){return Object.prototype.hasOwnProperty.call(e,c)},r.p="/",r.oe=function(e){throw console.error(e),e};var n=this["webpackJsonpstart-react-demo"]=this["webpackJsonpstart-react-demo"]||[],o=n.push.bind(n);n.push=c,n=n.slice();for(var u=0;u<n.length;u++)c(n[u]);var i=o;d()}([])</script><script src="./Stunning_files/244.c97f955a.chunk.js.download"></script><script src="./Stunning_files/main.ea60e1e2.chunk.js.download"></script>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","738802870177541");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=738802870177541&amp;ev=PageView&amp;noscript=1"></noscript>
+<script type="text/javascript" id="">try{(function(){var a=google_tag_manager["rm"]["31871541"](6);a="undefined"==typeof a?google_tag_manager["rm"]["31871541"](7):a;var b=new Date;b.setTime(b.getTime()+18E5);var c="gtm-session-start";b=b.toGMTString();var d="/",e=".keenthemes.com";document.cookie=c+"\x3d"+a+"; Expires\x3d"+b+"; domain\x3d"+e+"; Path\x3d"+d})()}catch(a){};</script><script type="text/javascript" id="">(function(){var a=google_tag_manager["rm"]["31871541"](8)-0+1,b=".keenthemes.com";document.cookie="damlPageCount\x3d"+a+";domain\x3d"+b+";path\x3d/;"})();</script><script async="" src="./Stunning_files/js(3)"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-4DDJ80DE67")</script><script type="text/javascript" src="./Stunning_files/entri.js.download"></script><svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1002"></defs><polyline id="SvgjsPolyline1003" points="0,0"></polyline><path id="SvgjsPath1004" d="M0 0 "></path></svg><script src="./Stunning_files/main.js.download" id="cn-main-script" async=""></script></body></html>

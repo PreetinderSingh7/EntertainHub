@@ -1,0 +1,2271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EntertainHub - Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Customize scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: orange;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: orange;
+        }
+
+        /* Page loader animation */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loader-logo {
+            font-size: 4rem;
+            font-weight: bold;
+            color: orange;
+            opacity: 0;
+            position: relative;
+        }
+
+        .loader-logo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, orange, #ff6b6b);
+            border-radius: 2px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.9);
+            z-index: 100;
+            transition: background 0.3s ease;
+        }
+
+        .nav-logo {
+            color: orange;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: orange;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .profile-btn, .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: white;
+            padding: 10px 20px;
+            border: 1px solid orange;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .profile-btn:hover, .logout-btn:hover {
+            background: orange;
+            transform: translateY(-2px);
+        }
+
+        /* Main content container */
+        .main-container {
+            margin-top: 80px;
+            padding: 20px 50px;
+        }
+
+        /* Welcome banner */
+        .welcome-banner {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1920/400');
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .welcome-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,165,0,0.3), rgba(255,107,107,0.3));
+            z-index: 1;
+        }
+
+        .welcome-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .welcome-banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .welcome-banner p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-banner .stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: rgba(0,0,0,0.5);
+            padding: 15px 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,165,0,0.3);
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: orange;
+        }
+
+        /* Category tabs */
+        .category-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: rgba(20,20,20,0.8);
+            padding: 10px;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+
+        .category-tab {
+            padding: 12px 25px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .category-tab:hover {
+            background: rgba(255,165,0,0.2);
+        }
+
+        .category-tab.active {
+            background: orange;
+        }
+
+        /* Content sections */
+        .content-section {
+            display: none;
+            opacity: 0;
+            margin-bottom: 60px;
+        }
+
+        .content-section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            background: linear-gradient(45deg, orange, #ff6b6b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .view-all {
+            color: orange;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+
+        .view-all:hover {
+            transform: translateX(5px);
+        }
+
+        /* Content cards grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .content-card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(60,60,60,0.5);
+            cursor: pointer;
+        }
+
+        .content-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            border-color: rgba(255,165,0,0.3);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: orange;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .card-description {
+            color: #ddd;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .rating-value {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .card-action {
+            background: transparent;
+            color: white;
+            border: 1px solid orange;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .card-action:hover {
+            background: orange;
+        }
+
+        /* Trending section with large cards */
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .trending-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .trending-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .trending-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .trending-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            transition: transform 0.3s;
+        }
+
+        .trending-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .trending-meta span {
+            background: rgba(255,165,0,0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .trending-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .trending-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .trending-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #ddd;
+        }
+
+        .trending-action {
+            background: orange;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .trending-action:hover {
+            background: #ff8c00;
+            transform: translateY(-2px);
+        }
+
+        /* News articles section */
+        .news-card {
+            display: flex;
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+            border: 1px solid rgba(60,60,60,0.5);
+        }
+
+        .news-card:hover {
+            transform: translateX(5px);
+            border-color: rgba(255,165,0,0.3);
+        }
+
+        .news-img {
+            width: 180px;
+            min-width: 180px;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .news-description {
+            color: #ddd;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Profile modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .profile-form {
+            background: rgba(25, 25, 25, 1);
+            padding: 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(-50px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #333;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: #fff;
+            position: relative;
+            cursor: pointer;
+            border: 3px solid orange;
+        }
+
+        .profile-picture:hover::after {
+            content: 'Change';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0,0,0,0.7);
+            border-radius: 50%;
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #f0f0f0;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .form-buttons button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .save-btn {
+            background-color: orange;
+            color: white;
+        }
+
+        .cancel-btn {
+            background: transparent;
+            border: 1px solid #555;
+            color: white;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(25, 25, 25, 1);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 1001;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .trending-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: rgba(0,0,0,0.95);
+                padding: 20px;
+                gap: 15px;
+                z-index: 99;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            
+            .main-container {
+                padding: 20px;
+            }
+            
+            .welcome-banner {
+                padding: 30px 20px;
+            }
+            
+            .welcome-banner h1 {
+                font-size: 2rem;
+            }
+            
+            .welcome-banner .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .news-img {
+                width: 120px;
+                min-width: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .news-card {
+                flex-direction: column;
+            }
+            
+            .news-img {
+                width: 100%;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page loader animation -->
+    <div class="page-loader">
+        <div class="loader-logo">EntertainHub</div>
+    </div>
+
+    <!-- Navigation bar -->
+    <nav>
+        <div class="nav-logo">EntertainHub</div>
+        <div class="nav-links">
+            <a href="#movies" class="active">Movies</a>
+            <a href="#tvshows">TV Shows</a>
+            <a href="#music">Music</a>
+            <a href="#news">News</a>
+            <a href="#shopping">Shopping</a>
+            <a href="#games">Games</a>
+            <a href="#events">Events</a>
+        </div>
+        <div class="nav-actions">
+            <button class="profile-btn">👤 Profile</button>
+        </div>
+    </nav>
+
+    <!-- Main content container -->
+    <div class="main-container">
+        <!-- Welcome banner -->
+        <div class="welcome-banner">
+            <div class="welcome-content">
+                <h1>Welcome, <span id="username">User</span>!</h1>
+                <p>Discover the latest trends in entertainment, stay up-to-date with current affairs, and explore new content tailored just for you.</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>15</h3>
+                        <p>Watchlist Items</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>8</h3>
+                        <p>Recently Watched</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>3</h3>
+                        <p>New Recommendations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category tabs -->
+        <div class="category-tabs">
+            <button class="category-tab active" data-section="trending">Trending</button>
+            <button class="category-tab" data-section="movies">Movies</button>
+            <button class="category-tab" data-section="tvshows">TV Shows</button>
+            <button class="category-tab" data-section="music">Music</button>
+            <button class="category-tab" data-section="news">News & Current Affairs</button>
+            <button class="category-tab" data-section="shopping">Shopping</button>
+            <button class="category-tab" data-section="games">Games</button>
+            <button class="category-tab" data-section="events">Live Events</button>
+        </div>
+
+        <!-- Trending section -->
+        <div id="trending" class="content-section active">
+            <div class="section-header">
+                <h2>Trending Now</h2>
+                <a href="#" class="view-all">View All →</a>
+            </div>
+            
+            <div class="trending-grid">
+                <div class="trending-card">
+                    <img src="/api/placeholder/600/400" alt="Dune: Part II">
+                    <div class="trending-overlay">
+                        <div class="trending-meta">
+                            <span>Movie</span>
+                            <span>Sci-Fi</span>
+                        </div>
+                        <h3 class="trending-title">Dune: Part II</h3>
+                        <div class="trending-info">
+                            <span>⭐ 8.9/10</span>
+                            <span>⏱️ 166 min</span>
+                            <span>🗓️ 2025</span>
+                        </div>
+                        <button class="trending-action">Watch Now</button>
+                    </div>
+                </div>
+                
+                <div class="trending-card">
+                    <img src="/api/placeholder/600/400" alt="The Last of Us - Season 2">
+                    <div class="trending-overlay">
+                        <div class="trending-meta">
+                            <span>TV Show</span>
+                            <span>Drama</span>
+                        </div>
+                        <h3 class="trending-title">The Last of Us - Season 2</h3>
+                        <div class="trending-info">
+                            <span>⭐ 9.2/10</span>
+                            <span>🔄 Now Streaming</span>
+                            <span>🗓️ 2025</span>
+                        </div>
+                        <button class="trending-action">Watch Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-header" style="margin-top: 40px;">
+                <h2>Continue Watching</h2>
+                <a href="#" class="view-all">View All →</a>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Movie Title" class="card-img">
+                    <div class="card-badge">75% Completed</div>
+                    <div class="card-content">
+                        <h3>The Marvels</h3>
+                        <div class="card-meta">
+                            <span>Action, Adventure</span>
+                            <span>2024</span>
+                        </div>
+                        <p class="card-description">Carol Danvers gets her powers entangled with those of Kamala Khan and Monica Rambeau, forcing them to work together.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">7.2</span>
+                            </div>
+                            <button class="card-action">Resume</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Show Title" class="card-img">
+                    <div class="card-badge">4 Episodes Left</div>
+                    <div class="card-content">
+                        <h3>Bridgerton</h3>
+                        <div class="card-meta">
+                            <span>Drama, Romance</span>
+                            <span>S3:E5</span>
+                        </div>
+                        <p class="card-description">The eight close-knit siblings of the Bridgerton family look for love and happiness in London high society.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">8.5</span>
+                            </div>
+                            <button class="card-action">Resume</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Movie Title" class="card-img">
+                    <div class="card-badge">30% Completed</div>
+                    <div class="card-content">
+                        <h3>Challengers</h3>
+                        <div class="card-meta">
+                            <span>Drama, Sport</span>
+                            <span>2024</span>
+                        </div>
+                        <p class="card-description">A former tennis star's skills are tested both on and off the court when her husband and childhood best friend collide.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">7.8</span>
+                            </div>
+                            <button class="card-action">Resume</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Show Title" class="card-img">
+                    <div class="card-badge">2 Episodes Left</div>
+                    <div class="card-content">
+                        <h3>House of the Dragon</h3>
+                        <div class="card-meta">
+                            <span>Fantasy, Action</span>
+                            <span>S2:E8</span>
+                        </div>
+                        <p class="card-description">The story of the Targaryen civil war that took place about 200 years before the events portrayed in Game of Thrones.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">8.7</span>
+                            </div>
+                            <button class="card-action">Resume</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movies section -->
+        <div id="movies" class="content-section">
+            <div class="section-header">
+                <h2>Popular Movies</h2>
+                <a href="#" class="view-all">View All →</a>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Movie Title" class="card-img">
+                    <div class="card-badge">New</div>
+                    <div class="card-content">
+                        <h3>The Batman 2</h3>
+                        <div class="card-meta">
+                            <span>Action, Crime</span>
+                            <span>2025</span>
+                        </div>
+                        <p class="card-description">Batman ventures into Gotham City's underworld when a sadistic killer leaves behind a trail of cryptic clues.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">8.9</span>
+                            </div>
+                            <button class="card-action">Watch</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Movie Title" class="card-img">
+                    <div class="card-content">
+                        <h3>Oppenheimer</h3>
+                        <div class="card-meta">
+                            <span>Biography, Drama</span>
+                            <span>2023</span>
+                        </div>
+                        <p class="card-description">The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">8.5</span>
+                            </div>
+                            <button class="card-action">Watch</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Movie Title" class="card-img">
+                    <div class="card-content">
+                        <h3>Joker: Folie à Deux</h3>
+                        <div class="card-meta">
+                            <span>Crime, Drama</span>
+                            <span>2024</span>
+                        </div>
+                        <p class="card-description">Arthur Fleck, now in Arkham Asylum, encounters a fellow patient named Harley Quinn, and chaos ensues when they escape together.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">8.3</span>
+                            </div>
+                            <button class="card-action">Watch</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Movie Title" class="card-img">
+                    <div class="card-badge">Popular</div>
+                    <div class="card-content">
+                        <h3>Blade Runner 2049</h3>
+                        <div class="card-meta">
+                            <span>Sci-Fi, Action</span>
+                            <span>2017</span>
+                        </div>
+                        <p class="card-description">A young blade runner's discovery of a long-buried secret leads him to track down former blade runner Rick Deckard, who's been missing for thirty years.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">8.0</span>
+                            </div>
+                            <button class="card-action">Watch</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Movie Title" class="card-img">
+                    <div class="card-content">
+                        <h3>Interstellar</h3>
+                        <div class="card-meta">
+                            <span>Sci-Fi, Adventure</span>
+                            <span>2014</span>
+                        </div>
+                        <p class="card-description">A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">8.7</span>
+                            </div>
+                            <button class="card-action">Watch</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Movie Title" class="card-img">
+                    <div class="card-badge">HD</div>
+                    <div class="card-content">
+                        <h3>Spider-Man: Across the Spider-Verse</h3>
+                        <div class="card-meta">
+                            <span>Animation, Action</span>
+                            <span>2023</span>
+                        </div>
+                        <p class="card-description">Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">8.7</span>
+                            </div>
+                            <button class="card-action">Watch</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TV Shows section -->
+        <div id="tvshows" class="content-section">
+            <div class="section-header">
+                <h2>Popular TV Shows</h2>
+                <a href="#" class="view-all">View All →</a>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Show Title" class="card-img">
+                    <div class="card-badge">New Season</div>
+                    <div class="card-content">
+                        <h3>Stranger Things</h3>
+                        <div class="card-meta">
+                            <span>Sci-Fi, Horror</span>
+                            <span>Season 5</span>
+                        </div>
+                        <p class="card-description">When a young boy disappears, his mother, a police chief, and his friends must confront terrifying supernatural forces in order to get him back.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">8.7</span>
+                            </div>
+                            <button class="card-action">Watch</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Show Title" class="card-img">
+                    <div class="card-content">
+                        <h3>The Crown</h3>
+                        <div class="card-meta">
+                            <span>Drama, History</span>
+                            <span>Season 6</span>
+                        </div>
+                        <p class="card-description">Follows the political rivalries and romance of Queen Elizabeth II's reign and the events that shaped the second half of the twentieth century.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">8.6</span>
+                            </div>
+                            <button class="card-action">Watch</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Show Title" class="card-img">
+                    <div class="card-badge">Trending</div>
+                    <div class="card-content">
+                        <h3>The White Lotus</h3>
+                        <div class="card-meta">
+                            <span>Comedy, Drama</span>
+                            <span>Season 3</span>
+                        </div>
+                        <p class="card-description">Set in an exclusive tropical resort, this series follows the exploits of various guests and employees over the span of a week.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">8.0</span>
+                            </div>
+                            <button class="card-action">Watch</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Show Title" class="card-img">
+                    <div class="card-content">
+                        <h3>Succession</h3>
+                        <div class="card-meta">
+                            <span>Drama</span>
+                            <span>Complete Series</span>
+                        </div>
+                        <p class="card-description">The Roy family is known for controlling the biggest media and entertainment company in the world. However, their world changes when their father steps down from the company.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">8.8</span>
+                            </div>
+                            <button class="card-action">Watch</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Music section -->
+        <div id="music" class="content-section">
+            <div class="section-header">
+                <h2>Top Music</h2>
+                <a href="#" class="view-all">View All →</a>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Album Cover" class="card-img">
+                    <div class="card-badge">New Release</div>
+                    <div class="card-content">
+                        <h3>The Tortured Poets Department</h3>
+                        <div class="card-meta">
+                            <span>Taylor Swift</span>
+                            <span>Pop</span>
+                        </div>
+                        <p class="card-description">The seventh studio album by Taylor Swift explores themes of heartbreak, reflection, and resilience.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">4.8</span>
+                            </div>
+                            <button class="card-action">Listen</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Album Cover" class="card-img">
+                    <div class="card-content">
+                        <h3>For All The Dogs</h3>
+                        <div class="card-meta">
+                            <span>Drake</span>
+                            <span>Hip-Hop</span>
+                        </div>
+                        <p class="card-description">Drake's latest album features collaborations with 21 Savage, Lil Yachty, and other top artists.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">4.5</span>
+                            </div>
+                            <button class="card-action">Listen</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Album Cover" class="card-img">
+                    <div class="card-badge">Trending</div>
+                    <div class="card-content">
+                        <h3>Pink Friday 2</h3>
+                        <div class="card-meta">
+                            <span>Nicki Minaj</span>
+                            <span>Hip-Hop</span>
+                        </div>
+                        <p class="card-description">The long-awaited sequel to Nicki Minaj's debut album brings her signature style with modern production.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">4.7</span>
+                            </div>
+                            <button class="card-action">Listen</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Album Cover" class="card-img">
+                    <div class="card-content">
+                        <h3>Cowboy Carter</h3>
+                        <div class="card-meta">
+                            <span>Beyoncé</span>
+                            <span>Country, Pop</span>
+                        </div>
+                        <p class="card-description">Beyoncé's genre-bending album explores country music through her unique artistic lens.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">4.9</span>
+                            </div>
+                            <button class="card-action">Listen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- News section -->
+        <div id="news" class="content-section">
+            <div class="section-header">
+                <h2>Top Stories</h2>
+                <a href="#" class="view-all">View All →</a>
+            </div>
+            
+            <div class="news-container">
+                <div class="news-card">
+                    <img src="/api/placeholder/180/140" alt="News Image" class="news-img">
+                    <div class="news-content">
+                        <h3 class="news-title">AI Breakthrough Promises Medical Diagnostics Revolution</h3>
+                        <div class="news-meta">
+                            <span>Technology</span>
+                            <span>2 hours ago</span>
+                        </div>
+                        <p class="news-description">Researchers have developed a new AI system that can diagnose diseases with 99% accuracy, potentially transforming healthcare worldwide.</p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <img src="/api/placeholder/180/140" alt="News Image" class="news-img">
+                    <div class="news-content">
+                        <h3 class="news-title">Global Climate Summit Reaches Historic Agreement</h3>
+                        <div class="news-meta">
+                            <span>Environment</span>
+                            <span>5 hours ago</span>
+                        </div>
+                        <p class="news-description">World leaders have agreed to ambitious new targets for carbon reduction, with major economies pledging significant financial support for developing nations.</p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <img src="/api/placeholder/180/140" alt="News Image" class="news-img">
+                    <div class="news-content">
+                        <h3 class="news-title">Space Tourism Takes Off as New Company Launches Orbital Hotel</h3>
+                        <div class="news-meta">
+                            <span>Science</span>
+                            <span>1 day ago</span>
+                        </div>
+                        <p class="news-description">The first commercial space hotel has begun construction in orbit, with bookings already sold out for its inaugural year of operation.</p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <img src="/api/placeholder/180/140" alt="News Image" class="news-img">
+                    <div class="news-content">
+                        <h3 class="news-title">Virtual Reality Education Program Shows Stunning Results</h3>
+                        <div class="news-meta">
+                            <span>Education</span>
+                            <span>2 days ago</span>
+                        </div>
+                        <p class="news-description">A pilot program using VR for teaching has shown a 40% improvement in student outcomes, particularly in STEM subjects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shopping section -->
+        <div id="shopping" class="content-section">
+            <div class="section-header">
+                <h2>Trending Products</h2>
+                <a href="#" class="view-all">View All →</a>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Product Image" class="card-img">
+                    <div class="card-badge">Sale</div>
+                    <div class="card-content">
+                        <h3>Smart Home Hub Pro</h3>
+                        <div class="card-meta">
+                            <span>Electronics</span>
+                            <span>$129.99</span>
+                        </div>
+                        <p class="card-description">Complete smart home control with voice commands, touchscreen interface, and compatibility with all major smart devices.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">4.7</span>
+                            </div>
+                            <button class="card-action">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Product Image" class="card-img">
+                    <div class="card-content">
+                        <h3>Wireless Noise-Cancelling Headphones</h3>
+                        <div class="card-meta">
+                            <span>Audio</span>
+                            <span>$199.99</span>
+                        </div>
+                        <p class="card-description">Premium sound quality with advanced noise cancellation technology and 30-hour battery life.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">4.9</span>
+                            </div>
+                            <button class="card-action">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Product Image" class="card-img">
+                    <div class="card-badge">Bestseller</div>
+                    <div class="card-content">
+                        <h3>4K Streaming Media Player</h3>
+                        <div class="card-meta">
+                            <span>Entertainment</span>
+                            <span>$49.99</span>
+                        </div>
+                        <p class="card-description">Stream your favorite content in 4K HDR with Dolby Atmos support and voice control remote.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">4.8</span>
+                            </div>
+                            <button class="card-action">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Product Image" class="card-img">
+                    <div class="card-badge">New</div>
+                    <div class="card-content">
+                        <h3>Smart Fitness Watch</h3>
+                        <div class="card-meta">
+                            <span>Wearables</span>
+                            <span>$179.99</span>
+                        </div>
+                        <p class="card-description">Track your fitness goals with advanced health monitoring, GPS, and 7-day battery life in a stylish design.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">4.6</span>
+                            </div>
+                            <button class="card-action">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Games section -->
+        <div id="games" class="content-section">
+            <div class="section-header">
+                <h2>Popular Games</h2>
+                <a href="#" class="view-all">View All →</a>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Game Cover" class="card-img">
+                    <div class="card-badge">New Release</div>
+                    <div class="card-content">
+                        <h3>Elder Scrolls VI</h3>
+                        <div class="card-meta">
+                            <span>RPG, Open World</span>
+                            <span>2025</span>
+                        </div>
+                        <p class="card-description">Return to Tamriel in the long-awaited sequel to Skyrim, featuring a massive new world to explore.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">9.5</span>
+                            </div>
+                            <button class="card-action">Play</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Game Cover" class="card-img">
+                    <div class="card-content">
+                        <h3>Grand Theft Auto VI</h3>
+                        <div class="card-meta">
+                            <span>Action, Adventure</span>
+                            <span>2025</span>
+                        </div>
+                        <p class="card-description">Experience the next chapter in the acclaimed series with a return to Vice City and multiple playable characters.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">9.7</span>
+                            </div>
+                            <button class="card-action">Pre-order</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Game Cover" class="card-img">
+                    <div class="card-badge">Popular</div>
+                    <div class="card-content">
+                        <h3>Hogwarts Legacy 2</h3>
+                        <div class="card-meta">
+                            <span>RPG, Fantasy</span>
+                            <span>2025</span>
+                        </div>
+                        <p class="card-description">Continue your journey at Hogwarts with new adventures, spells, and mysteries in the wizarding world.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">9.2</span>
+                            </div>
+                            <button class="card-action">Play</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Game Cover" class="card-img">
+                    <div class="card-content">
+                        <h3>The Legend of Zelda: Echoes of Wisdom</h3>
+                        <div class="card-meta">
+                            <span>Adventure</span>
+                            <span>2024</span>
+                        </div>
+                        <p class="card-description">Embark on an epic adventure with Link in a breathtaking open world filled with dungeons and puzzles.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>⭐</span>
+                                <span class="rating-value">9.6</span>
+                            </div>
+                            <button class="card-action">Play</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Events section -->
+        <div id="events" class="content-section">
+            <div class="section-header">
+                <h2>Upcoming Events</h2>
+                <a href="#" class="view-all">View All →</a>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Event Image" class="card-img">
+                    <div class="card-badge">Featured</div>
+                    <div class="card-content">
+                        <h3>Global Music Festival</h3>
+                        <div class="card-meta">
+                            <span>Music</span>
+                            <span>Apr 15-17, 2025</span>
+                        </div>
+                        <p class="card-description">Three days of performances from the world's top artists across multiple genres on five stages.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>🎟️</span>
+                                <span class="rating-value">$299</span>
+                            </div>
+                            <button class="card-action">Book</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Event Image" class="card-img">
+                    <div class="card-content">
+                        <h3>Tech Innovation Summit</h3>
+                        <div class="card-meta">
+                            <span>Technology</span>
+                            <span>May 5-7, 2025</span>
+                        </div>
+                        <p class="card-description">Join industry leaders and visionaries to explore the future of AI, robotics, and digital transformation.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>🎟️</span>
+                                <span class="rating-value">$499</span>
+                            </div>
+                            <button class="card-action">Book</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Event Image" class="card-img">
+                    <div class="card-badge">Limited</div>
+                    <div class="card-content">
+                        <h3>World Food & Wine Expo</h3>
+                        <div class="card-meta">
+                            <span>Food</span>
+                            <span>Jun 12-14, 2025</span>
+                        </div>
+                        <p class="card-description">Experience cuisine and beverages from over 50 countries with demonstrations from celebrity chefs.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>🎟️</span>
+                                <span class="rating-value">$149</span>
+                            </div>
+                            <button class="card-action">Book</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <img src="/api/placeholder/300/180" alt="Event Image" class="card-img">
+                    <div class="card-content">
+                        <h3>International Film Festival</h3>
+                        <div class="card-meta">
+                            <span>Film</span>
+                            <span>Jul 20-30, 2025</span>
+                        </div>
+                        <p class="card-description">Showcasing over 200 films from around the world with premieres, panel discussions, and award ceremonies.</p>
+                        <div class="card-footer">
+                            <div class="rating">
+                                <span>🎟️</span>
+                                <span class="rating-value">$179</span>
+                            </div>
+                            <button class="card-action">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: #111; padding: 40px 50px; margin-top: 60px;">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px;">
+            <div style="flex: 1; min-width: 200px;">
+                <h3 style="color: orange; margin-bottom: 20px; font-size: 1.5rem;">EntertainHub</h3>
+                <p style="color: #aaa; line-height: 1.6;">Your one-stop destination for entertainment, news, shopping, and more. Discover the best content tailored just for you.</p>
+            </div>
+            
+            <div style="flex: 1; min-width: 200px;">
+                <h4 style="color: white; margin-bottom: 20px;">Quick Links</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;"><a href="#" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Home</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Browse</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#" style="color: #aaa; text-decoration: none; transition: color 0.3s;">My List</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Recently Added</a></li>
+                </ul>
+            </div>
+            
+            <div style="flex: 1; min-width: 200px;">
+                <h4 style="color: white; margin-bottom: 20px;">Support</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;"><a href="#" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Help Center</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Contact Us</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Privacy Policy</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#" style="color: #aaa; text-decoration: none; transition: color 0.3s;">Terms of Service</a></li>
+                </ul>
+            </div>
+            
+            <div style="flex: 1; min-width: 200px;">
+                <h4 style="color: white; margin-bottom: 20px;">Connect With Us</h4>
+                <div style="display: flex; gap: 15px;">
+                    <a href="#" style="color: #aaa; font-size: 1.5rem; transition: color 0.3s;">📱</a>
+                    <a href="#" style="color: #aaa; font-size: 1.5rem; transition: color 0.3s;">💻</a>
+                    <a href="#" style="color: #aaa; font-size: 1.5rem; transition: color 0.3s;">📧</a>
+                    <a href="#" style="color: #aaa; font-size: 1.5rem; transition: color 0.3s;">🐦</a>
+                </div>
+                <p style="color: #aaa; margin-top: 20px;">Subscribe to our newsletter for updates</p>
+                <div style="display: flex; margin-top: 10px;">
+                    <input type="email" placeholder="Your email" style="flex: 1; padding: 10px; border: none; border-radius: 4px 0 0 4px; background: #333; color: white;">
+                    <button style="padding: 10px 15px; background: orange; border: none; border-radius: 0 4px 4px 0; color: white; cursor: pointer;">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; text-align: center; color: #777;">
+            <p>© 2025 EntertainHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Profile Modal -->
+    <div class="modal" id="profileModal">
+        <div class="profile-form">
+            <button class="close-modal">&times;</button>
+            <h2>Edit Profile</h2>
+            
+            <div class="profile-picture">
+                👤
+            </div>
+            
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Your username">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Your password">
+            </div>
+            
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password">
+            </div>
+            
+            <div class="form-group">
+                <label>Preferences</label>
+                <div class="preferences-grid">
+                    <div class="preference-item">
+                        <input type="checkbox" id="movies" name="preferences" value="movies" checked>
+                        <label for="movies">Movies</label>
+                    </div>
+                    <div class="preference-item">
+                        <input type="checkbox" id="tvshows" name="preferences" value="tvshows" checked>
+                        <label for="tvshows">TV Shows</label>
+                    </div>
+                    <div class="preference-item">
+                        <input type="checkbox" id="music" name="preferences" value="music" checked>
+                        <label for="music">Music</label>
+                    </div>
+                    <div class="preference-item">
+                        <input type="checkbox" id="news" name="preferences" value="news">
+                        <label for="news">News</label>
+                    </div>
+                    <div class="preference-item">
+                        <input type="checkbox" id="shopping" name="preferences" value="shopping">
+                        <label for="shopping">Shopping</label>
+                    </div>
+                    <div class="preference-item">
+                        <input type="checkbox" id="games" name="preferences" value="games" checked>
+                        <label for="games">Games</label>
+                    </div>
+                    <div class="preference-item">
+                        <input type="checkbox" id="events" name="preferences" value="events">
+                        <label for="events">Events</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button type="button" class="save-profile-btn">Save Changes</button>
+                <button type="button" class="cancel-profile-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="login-form">
+            <button class="close-modal">&times;</button>
+            <h2>Login to EntertainHub</h2>
+            
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" name="loginEmail" placeholder="Your email">
+            </div>
+            
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="loginPassword" placeholder="Your password">
+            </div>
+            
+            <div class="remember-forgot">
+                <div>
+                    <input type="checkbox" id="rememberMe" name="rememberMe">
+                    <label for="rememberMe">Remember me</label>
+                </div>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+            
+            <button type="button" class="login-btn">Login</button>
+            
+            <div class="social-login">
+                <p>Or login with</p>
+                <div class="social-buttons">
+                    <button class="social-btn google-btn">Google</button>
+                    <button class="social-btn facebook-btn">Facebook</button>
+                    <button class="social-btn twitter-btn">Twitter</button>
+                </div>
+            </div>
+            
+            <p class="signup-link">Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="signup-form">
+            <button class="close-modal">&times;</button>
+            <h2>Create an Account</h2>
+            
+            <div class="form-group">
+                <label for="signupUsername">Username</label>
+                <input type="text" id="signupUsername" name="signupUsername" placeholder="Choose a username">
+            </div>
+            
+            <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" name="signupEmail" placeholder="Your email">
+            </div>
+            
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" name="signupPassword" placeholder="Create a password">
+            </div>
+            
+            <div class="form-group">
+                <label for="signupConfirmPassword">Confirm Password</label>
+                <input type="password" id="signupConfirmPassword" name="signupConfirmPassword" placeholder="Confirm your password">
+            </div>
+            
+            <div class="terms-privacy">
+                <input type="checkbox" id="agreeTerms" name="agreeTerms">
+                <label for="agreeTerms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+            </div>
+            
+            <button type="button" class="signup-btn">Create Account</button>
+            
+            <div class="social-signup">
+                <p>Or signup with</p>
+                <div class="social-buttons">
+                    <button class="social-btn google-btn">Google</button>
+                    <button class="social-btn facebook-btn">Facebook</button>
+                    <button class="social-btn twitter-btn">Twitter</button>
+                </div>
+            </div>
+            
+            <p class="login-link">Already have an account? <a href="#" id="showLogin">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Search Results Modal -->
+    <div class="modal" id="searchResultsModal">
+        <div class="search-results-container">
+            <button class="close-modal">&times;</button>
+            <h2>Search Results</h2>
+            <div class="search-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="movies">Movies</button>
+                <button class="filter-btn" data-filter="tvshows">TV Shows</button>
+                <button class="filter-btn" data-filter="music">Music</button>
+                <button class="filter-btn" data-filter="news">News</button>
+                <button class="filter-btn" data-filter="games">Games</button>
+            </div>
+            <div id="searchResultsContent" class="search-results-content">
+                <!-- Search results will be populated here via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Modal -->
+    <div class="notification-panel" id="notificationPanel">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <button class="close-notification">&times;</button>
+        </div>
+        <div class="notification-list">
+            <!-- Notification items will be populated here via JavaScript -->
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Loading Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingContainer = document.querySelector('.loading-container');
+            
+            // Simulate loading delay (remove in production)
+            setTimeout(() => {
+                loadingContainer.classList.add('loading-hidden');
+                setTimeout(() => {
+                    loadingContainer.style.display = 'none';
+                }, 500);
+            }, 2000);
+        });
+
+        // API Configuration (replace with your actual API keys in production)
+        const APIs = {
+            movies: {
+                apiKey: 'YOUR_TMDB_API_KEY',
+                baseUrl: 'https://api.themoviedb.org/3',
+                imageBaseUrl: 'https://image.tmdb.org/t/p/w500'
+            },
+            tvshows: {
+                apiKey: 'YOUR_TMDB_API_KEY',
+                baseUrl: 'https://api.themoviedb.org/3',
+                imageBaseUrl: 'https://image.tmdb.org/t/p/w500'
+            },
+            music: {
+                apiKey: 'YOUR_SPOTIFY_API_KEY',
+                baseUrl: 'https://api.spotify.com/v1'
+            },
+            news: {
+                apiKey: 'YOUR_NEWS_API_KEY',
+                baseUrl: 'https://newsapi.org/v2'
+            },
+            games: {
+                apiKey: 'YOUR_RAWG_API_KEY',
+                baseUrl: 'https://api.rawg.io/api'
+            },
+            events: {
+                apiKey: 'YOUR_TICKETMASTER_API_KEY',
+                baseUrl: 'https://app.ticketmaster.com/discovery/v2'
+            }
+        };
+
+        // Modal Management
+        function setupModals() {
+            const modals = document.querySelectorAll('.modal');
+            const profileButton = document.querySelector('.profile-btn');
+            const loginButton = document.querySelector('.login-btn');
+            const signupButton = document.querySelector('.signup-btn');
+            const closeButtons = document.querySelectorAll('.close-modal');
+            const showLoginLink = document.getElementById('showLogin');
+            const showSignupLink = document.getElementById('showSignup');
+            
+            // Notification Panel
+            const notificationButton = document.querySelector('.notification-btn');
+            const notificationPanel = document.getElementById('notificationPanel');
+            const closeNotification = document.querySelector('.close-notification');
+            
+            // Open modals
+            profileButton.addEventListener('click', () => {
+                document.getElementById('profileModal').style.display = 'flex';
+            });
+            
+            // Toggle navigation menu for mobile
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('show');
+            });
+            
+            // Switch between login and signup
+            showLoginLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('signupModal').style.display = 'none';
+                document.getElementById('loginModal').style.display = 'flex';
+            });
+            
+            showSignupLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('loginModal').style.display = 'none';
+                document.getElementById('signupModal').style.display = 'flex';
+            });
+            
+            // Close modals
+            closeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    modals.forEach(modal => {
+                        modal.style.display = 'none';
+                    });
+                });
+            });
+            
+            // Close when clicking outside modal
+            window.addEventListener('click', (e) => {
+                modals.forEach(modal => {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+                
+                if (e.target === notificationPanel) {
+                    notificationPanel.classList.remove('show');
+                }
+            });
+            
+            // Notification panel toggle
+            notificationButton.addEventListener('click', () => {
+                notificationPanel.classList.toggle('show');
+            });
+            
+            closeNotification.addEventListener('click', () => {
+                notificationPanel.classList.remove('show');
+            });
+        }
+
+        // Search Functionality
+        function setupSearch() {
+            const searchForm = document.querySelector('.search-form');
+            const searchInput = document.getElementById('searchInput');
+            const searchResultsModal = document.getElementById('searchResultsModal');
+            const searchResultsContent = document.getElementById('searchResultsContent');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const searchTerm = searchInput.value.trim();
+                
+                if (searchTerm.length > 2) {
+                    searchResultsModal.style.display = 'flex';
+                    performSearch(searchTerm);
+                }
+            });
+            
+            // Filter buttons functionality
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    const filter = button.getAttribute('data-filter');
+                    filterSearchResults(filter);
+                });
+            });
+            
+            // Mock search function - replace with actual API calls
+            function performSearch(searchTerm) {
+                // Show loading state
+                searchResultsContent.innerHTML = '<p class="loading-results">Searching...</p>';
+                
+                // Simulate API delay
+                setTimeout(() => {
+                    // Mock search results - in production, fetch from respective APIs
+                    const mockResults = [
+                        { type: 'movies', title: 'Inception', year: '2010', image: '/api/placeholder/100/150', rating: '8.8' },
+                        { type: 'movies', title: 'The Dark Knight', year: '2008', image: '/api/placeholder/100/150', rating: '9.0' },
+                        { type: 'tvshows', title: 'Breaking Bad', year: '2008-2013', image: '/api/placeholder/100/150', rating: '9.5' },
+                        { type: 'tvshows', title: 'Game of Thrones', year: '2011-2019', image: '/api/placeholder/100/150', rating: '9.3' },
+                        { type: 'music', title: 'Shape of You', artist: 'Ed Sheeran', image: '/api/placeholder/100/150', rating: '4.7' },
+                        { type: 'music', title: 'Blinding Lights', artist: 'The Weeknd', image: '/api/placeholder/100/150', rating: '4.8' },
+                        { type: 'news', title: 'Tech Giants Announce New Initiative', category: 'Technology', image: '/api/placeholder/100/150' },
+                        { type: 'games', title: 'The Last of Us Part II', platform: 'PlayStation', image: '/api/placeholder/100/150', rating: '9.7' }
+                    ];
+                    
+                    displaySearchResults(mockResults);
+                }, 1000);
+            }
+            
+            function displaySearchResults(results) {
+                if (results.length === 0) {
+                    searchResultsContent.innerHTML = '<p class="no-results">No results found. Try a different search term.</p>';
+                    return;
+                }
+                
+                // Clear previous results
+                searchResultsContent.innerHTML = '';
+                
+                // Create result items
+                results.forEach(item => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = `search-result-item ${item.type}`;
+                    
+                    let itemContent = `
+                        <img src="${item.image}" alt="${item.title}" class="result-img">
+                        <div class="result-info">
+                            <h4>${item.title}</h4>
+                    `;
+                    
+                    // Add specific content based on type
+                    if (item.type === 'movies' || item.type === 'tvshows') {
+                        itemContent += `
+                            <p>${item.year}</p>
+                            <div class="result-rating">⭐ ${item.rating}</div>
+                        `;
+                    } else if (item.type === 'music') {
+                        itemContent += `
+                            <p>${item.artist}</p>
+                            <div class="result-rating">⭐ ${item.rating}</div>
+                        `;
+                    } else if (item.type === 'news') {
+                        itemContent += `
+                            <p>${item.category}</p>
+                        `;
+                    } else if (item.type === 'games') {
+                        itemContent += `
+                            <p>${item.platform}</p>
+                            <div class="result-rating">⭐ ${item.rating}</div>
+                        `;
+                    }
+                    
+                    itemContent += `
+                            <button class="view-result-btn">View</button>
+                        </div>
+                    `;
+                    
+                    resultItem.innerHTML = itemContent;
+                    searchResultsContent.appendChild(resultItem);
+                });
+            }
+            
+            function filterSearchResults(filter) {
+                const resultItems = document.querySelectorAll('.search-result-item');
+                
+                resultItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        // Content Loading Functions
+        function loadMovies() {
+            // In production, fetch from the Movie API
+            // For now, we're using the placeholder data from HTML
+            console.log('Loading movies data...');
+        }
+        
+        function loadTVShows() {
+            console.log('Loading TV shows data...');
+        }
+        
+        function loadMusic() {
+            console.log('Loading music data...');
+        }
+        
+        function loadNews() {
+            console.log('Loading news data...');
+        }
+        
+        function loadGames() {
+            console.log('Loading games data...');
+        }
+        
+        function loadEvents() {
+            console.log('Loading events data...');
+        }
+        
+        function loadShopping() {
+            console.log('Loading shopping data...');
+        }
+
+        // Profile Management
+        function setupProfileManagement() {
+            const saveProfileBtn = document.querySelector('.save-profile-btn');
+            const cancelProfileBtn = document.querySelector('.cancel-profile-btn');
+            const profileModal = document.getElementById('profileModal');
+            
+            // Save profile changes
+            saveProfileBtn.addEventListener('click', () => {
+                const username = document.getElementById('username').value;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                
+                // Basic validation
+                if (!username || !email) {
+                    alert('Username and email are required');
+                    return;
+                }
+                
+                if (password && password !== confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+                
+                // Get selected preferences
+                const preferences = [];
+                document.querySelectorAll('input[name="preferences"]:checked').forEach(checkbox => {
+                    preferences.push(checkbox.value);
+                });
+                
+                // In production, save to backend/API
+                console.log('Saving profile:', { username, email, preferences });
+                
+                // Show success message
+                alert('Profile updated successfully');
+                profileModal.style.display = 'none';
+            });
+            
+            // Cancel profile changes
+            cancelProfileBtn.addEventListener('click', () => {
+                profileModal.style.display = 'none';
+            });
+        }
+
+        // Authentication Functions
+        function setupAuth() {
+            const loginBtn = document.querySelector('.login-btn');
+            const signupBtn = document.querySelector('.signup-btn');
+            const loginModal = document.getElementById('loginModal');
+            const signupModal = document.getElementById('signupModal');
+            
+            // Mock login
+            loginBtn.addEventListener('click', () => {
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+                
+                if (!email || !password) {
+                    alert('Email and password are required');
+                    return;
+                }
+                
+                // In production, call your authentication API
+                console.log('Logging in:', { email });
+                
+                // Simulate successful login
+                alert('Login successful!');
+                loginModal.style.display = 'none';
+                
+                // Update UI to show logged in state
+                document.querySelector('.login-signup-btns').style.display = 'none';
+                document.querySelector('.user-actions').style.display = 'flex';
+            });
+            
+            // Mock signup
+            signupBtn.addEventListener('click', () => {
+                const username = document.getElementById('signupUsername').value;
+                const email = document.getElementById('signupEmail').value;
+                const password = document.getElementById('signupPassword').value;
+                const confirmPassword = document.getElementById('signupConfirmPassword').value;
+                
+                // Basic validation
+                if (!username || !email || !password) {
+                    alert('All fields are required');
+                    return;
+                }
+                
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+                
+                if (!document.getElementById('agreeTerms').checked) {
+                    alert('You must agree to the Terms of Service and Privacy Policy');
+                    return;
+                }
+                
+                // In production, call your registration API
+                console.log('Signing up:', { username, email });
+                
+                // Simulate successful signup
+                alert('Account created successfully! You can now log in.');
+                signupModal.style.display = 'none';
+                loginModal.style.display = 'flex';
+            });
+        }
+
+        // Notification System
+        function setupNotifications() {
+            // Mock notifications data - in production, fetch from API
+            const mockNotifications = [
+                { id: 1, type: 'info', title: 'Welcome to EntertainHub!', message: 'Explore our content and customize your preferences.', time: '2 minutes ago' },
+                { id: 2, type: 'update', title: 'New Content Added', message: 'Check out the latest movies and TV shows!', time: '1 hour ago' },
+                { id: 3, type: 'alert', title: 'Account Security', message: 'Consider enabling two-factor authentication for better security.', time: '1 day ago' }
+            ];
+            
+            const notificationList = document.querySelector('.notification-list');
+            
+            // Display notifications
+            mockNotifications.forEach(notification => {
+                const notificationItem = document.createElement('div');
+                notificationItem.className = `notification-item ${notification.type}`;
+                notificationItem.innerHTML = `
+                    <div class="notification-content">
+                        <h4>${notification.title}</h4>
+                        <p>${notification.message}</p>
+                        <span class="notification-time">${notification.time}</span>
+                    </div>
+                    <button class="dismiss-notification" data-id="${notification.id}">&times;</button>
+                `;
+                notificationList.appendChild(notificationItem);
+            });
+            
+            // Dismiss notification functionality
+            document.querySelectorAll('.dismiss-notification').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const notificationId = e.target.getAttribute('data-id');
+                    const notificationItem = e.target.closest('.notification-item');
+                    
+                    // Animate removal
+                    notificationItem.classList.add('dismissed');
+                    
+                    // Remove after animation completes
+                    setTimeout(() => {
+                        notificationItem.remove();
+                        
+                        // In production, update the notification status in your API
+                        console.log('Dismissed notification:', notificationId);
+                        
+                        // Update notification count
+                        updateNotificationCount();
+                    }, 300);
+                    
+                    // Stop event propagation
+                    e.stopPropagation();
+                });
+            });
+            
+            // Update notification count badge
+            function updateNotificationCount() {
+                const count = document.querySelectorAll('.notification-item').length;
+                const badge = document.querySelector('.notification-count');
+                
+                if (count > 0) {
+                    badge.textContent = count;
+                    badge.style.display = 'flex';
+                } else {
+                    badge.style.display = 'none';
+                }
+            }
+            
+            // Initial count update
+            updateNotificationCount();
+        }
+
+        // Initialize all functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            setupModals();
+            setupSearch();
+            setupProfileManagement();
+            setupAuth();
+            setupNotifications();
+            
+            // Load content for each section
+            loadMovies();
+            loadTVShows();
+            loadMusic();
+            loadNews();
+            loadGames();
+            loadEvents();
+            loadShopping();
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80, // Adjust for header height
+                                behavior: 'smooth'
+                            });
+                            
+                            // Close mobile menu if open
+                            document.querySelector('.nav-menu').classList.remove('show');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
