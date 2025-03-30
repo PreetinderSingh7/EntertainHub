@@ -780,7 +780,7 @@ body {
         </section>
 
         <section class="section" id="movies">
-            <h2 class="section-title">Trending Movies</h2>
+            <h2 class="section-title">Trending Movies of all time</h2>
             <div class="content-grid">
                 <!-- Movie cards will be dynamically added -->
             </div>
@@ -825,11 +825,13 @@ body {
                    
                 </div>
             </a>
+            <a href="https://www.amazon.in/" style="text-decoration: none; color: white;">
                 <div class="feature-card">
                     <i class="fas fa-shopping-cart"></i>
                     <h3>Shopping</h3>
                     <p>Shop the latest trends with exclusive deals.</p>
                 </div>
+                </a>
                 <a href="./MainGames.html" style="text-decoration: none; color: white;">
                 <div class="feature-card">
                     <i class="fas fa-gamepad"></i>
@@ -1086,27 +1088,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Content Data
     const movies = [
-        { title: 'Inception', image: '/api/placeholder/300/200', rating: '9.2', genre: 'Sci-Fi' },
-        { title: 'The Dark Knight', image: '/api/placeholder/300/200', rating: '9.0', genre: 'Action' },
-        { title: 'Fight Club', image: '/api/placeholder/300/200', rating: '8.8', genre: 'Drama' },
-        { title: 'Forrest Gump', image: '/api/placeholder/300/200', rating: '8.8', genre: 'Drama' },
-        { title: 'Matrix', image: '/api/placeholder/300/200', rating: '8.7', genre: 'Sci-Fi' }
+        { title: 'Inception', image: './Images/inception_poster19.jpg', rating: '9.2', genre: 'Sci-Fi', link: 'https://www.amazon.com/Inception-Leonardo-DiCaprio/dp/B0047WJ11G' },
+        { title: 'The Dark Knight', image: './Images/batman.jpg', rating: '9.0', genre: 'Action',link:"https://www.primevideo.com/detail/The-Dark-Knight/0GMAHZWVVD761P9R4U14H21EW5" },
+        { title: 'Fight Club', image: './Images/fight-Club.jpeg', rating: '8.8', genre: 'Drama',link:"https://www.primevideo.com/detail/Fight-Club/0N0CS0LQQGWVRXWT1EI6LATOWB" },
+        { title: 'Forrest Gump', image: './Images/Forset Gump.jpeg', rating: '8.8', genre: 'Drama',link:'https://www.primevideo.com/detail/Forrest-Gump/0RMLEUTKD0LKNDHSS10OQNYHF0' },
+        { title: 'Matrix', image: './Images/Matrix.jpg', rating: '8.7', genre: 'Sci-Fi',link:'https://www.primevideo.com/detail/The-Matrix/0SC64NC24QA7M9AFWBEK87WWS0' }
     ];
 
     const shows = [
-        { title: 'Breaking Bad', image: '/api/placeholder/300/200', rating: '9.5', genre: 'Crime Drama' },
-        { title: 'Game of Thrones', image: '/api/placeholder/300/200', rating: '9.3', genre: 'Fantasy' },
-        { title: 'Stranger Things', image: '/api/placeholder/300/200', rating: '8.7', genre: 'Sci-Fi' },
-        { title: 'The Crown', image: '/api/placeholder/300/200', rating: '8.6', genre: 'Drama' },
-        { title: 'Chernobyl', image: '/api/placeholder/300/200', rating: '9.4', genre: 'Drama' }
+        { title: 'Breaking Bad', image: 'Images/breakingBad.jpg', rating: '9.5', genre: 'Crime Drama',link:'https://www.netflix.com/in/Title/70143836' },
+        { title: 'Game of Thrones', image: 'Images/gameOf Thrones.jpeg', rating: '9.3', genre: 'Fantasy',link:'https://www.hotstar.com/in/shows/game-of-thrones/1971002880?utm_campaign=Game%2BOf%2BThrones&utm_medium=deeplink&utm_source=jc' },
+        { title: 'Stranger Things', image: 'Images/StrangeThings.jpg', rating: '8.7', genre: 'Sci-Fi' ,link:'https://www.netflix.com/in/title/80057281'},
+        { title: 'The Crown', image: 'Images/The Crown.webp', rating: '8.6', genre: 'Drama',link:'https://www.netflix.com/in/title/80025678' },
+        { title: 'Chernobyl', image: 'Images/Chernobyl.jpeg', rating: '9.4', genre: 'Drama',link:'https://www.hotstar.com/in/shows/chernobyl/1971002867' }
     ];
 
     const music = [
-        { title: 'Top Hits 2025', image: '/api/placeholder/300/200', artist: 'Various Artists', genre: 'Pop' },
-        { title: 'Future Nostalgia', image: '/api/placeholder/300/200', artist: 'Dua Lipa', genre: 'Pop' },
-        { title: 'Renaissance', image: '/api/placeholder/300/200', artist: 'Beyoncé', genre: 'R&B' },
-        { title: 'Un Verano Sin Ti', image: '/api/placeholder/300/200', artist: 'Bad Bunny', genre: 'Latin' },
-        { title: 'Heroes & Villains', image: '/api/placeholder/300/200', artist: 'Metro Boomin', genre: 'Hip-Hop' }
+        { title: 'Top Hits 2025', image: 'Images/TopHits.jpg', artist: 'Various Artists', genre: 'Pop' ,link:'https://www.youtube.com/playlist?list=PLZ6afNou8CGveBBBctBh1n8mRmwqvN4Wq'},
+        { title: 'Future Nostalgia', image: 'Images/Future Nostalgia.jpeg', artist: 'Dua Lipa', genre: 'Pop' ,link:'https://www.youtube.com/playlist?list=PLNrotoZZ8BaouNABcO_A9Xkn_Nkz0PT11'},
+        { title: 'Hurry Up Tomorrow', image: 'Images/Hurry Up tomorrrow.jpeg', artist: 'Weeked', genre: 'pop' ,link:'https://music.apple.com/us/album/hurry-up-tomorrow/1793654348'},
+        { title: 'Un Verano Sin Ti', image: 'Images/Un Verano Sin Ti.jpeg', artist: 'Bad Bunny', genre: 'Latin',link:'https://www.youtube.com/watch?v=IO6rgnJfmiM' },
+        { title: 'Heroes & Villains', image: 'Images/Heroes & Villains.webp', artist: 'Metro Boomin', genre: 'Hip-Hop',link:'https://open.spotify.com/album/7txGsnDSqVMoRl6RQ9XyZP' }
     ];
 
  // News API Configuration
@@ -1146,27 +1148,39 @@ function createCards(items, containerId, type) {
         card.className = 'content-card';
         
         let cardContent = '';
+
+
+       
         if (type === 'movie' || type === 'show') {
             cardContent = `
-                <div class="card-media">
-                    <img src="${item.source_icon}" alt="${item.title}" class="card-image">
-                </div>
+            <a href="${item.link}" style="text-decoration: none; color: white;">
+              <div class="card-media">
+                     <img src="${item.image}" alt="${item.title}" class="card-image">
+                 </div>
+               
                 <div class="card-content">
                     <h3>${item.title}</h3>
                     <p>Rating: ${item.rating}</p>
                     <p>Genre: ${item.genre}</p>
                 </div>
+                </a>
             `;
-        } else if (type === 'music') {
+        } 
+        
+       
+        
+        else if (type === 'music') {
             cardContent = `
-                <div class="card-media">
-                    <img src="${item.source_icon}" alt="${item.title}" class="card-image">
-                </div>
+            <a href="${item.link}" style="text-decoration: none; color: white;">
+                 <div class="card-media">
+                 <img src="${item.image}" alt="${item.title}" class="card-image">
+                 </div>
                 <div class="card-content">
                     <h3>${item.title}</h3>
                     <p>Artist: ${item.artist}</p>
                     <p>Genre: ${item.genre}</p>
                 </div>
+                </a>
             `;
         }
         card.innerHTML = cardContent;
@@ -1190,14 +1204,17 @@ async function createNewsCards() {
             return;
         }
 
+
+        // <div class="news-image">
+        //                 <img src="${item.image_url}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">
+        //             </div>
+
         latestNews.forEach(item => {
             const card = document.createElement('div');
             card.className = 'news-card';
             card.innerHTML = `
                 <div class="news-card-inner">
-                    <div class="news-image">
-                        <img src="${item.image_url}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">
-                    </div>
+                  
                     <div class="news-content">
                         <h3>${item.title}</h3>
                         <p>${item.content || 'No description available'}</p>
