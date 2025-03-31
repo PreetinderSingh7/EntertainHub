@@ -260,7 +260,7 @@
     <section id="news-sections" class="container">
         <!-- News Tabs -->
         <div class="news-tabs">
-            <button class="active" data-category="science">science</button>
+            <button class="active" data-category="general">science</button>
             <button data-category="sports">Sports News</button>
             <button data-category="technology">Technology</button>
             <button data-category="entertainment">Entertainment</button>
@@ -319,19 +319,18 @@ class NewsApp {
         this.newsContent.innerHTML = '<div class="loading">Loading news...</div>';
 
         try {
+            let response;
+
             // Fetch news from NewsData.io API
-            if(category=='general'){
-                const response = await fetch(
-                
-                `${NEWS_API_ENDPOINT}?apikey=${NEWS_API_KEY}&language=en&size=10`
-            );
-            }else{
-                const response = await fetch(
-                
-                `${NEWS_API_ENDPOINT}?apikey=${NEWS_API_KEY}&language=en&category=${category}&size=10`
-            );
+            if (category === 'general') {
+                response = await fetch(
+                    `${NEWS_API_ENDPOINT}?apikey=${NEWS_API_KEY}&language=en&size=10`
+                );
+            } else {
+                response = await fetch(
+                    `${NEWS_API_ENDPOINT}?apikey=${NEWS_API_KEY}&language=en&category=${category}&size=10`
+                );
             }
-            
 
             if (!response.ok) {
                 const errorData = await response.json();
@@ -339,6 +338,7 @@ class NewsApp {
             }
 
             const data = await response.json();
+            console.log('Fetched Data:', data);
 
             if (data.results && data.results.length > 0) {
                 this.displayNews(data.results);
@@ -403,7 +403,6 @@ class NewsApp {
 document.addEventListener('DOMContentLoaded', () => {
     const newsApp = new NewsApp();
 });
-
 </script>
 </body>
 </html>
